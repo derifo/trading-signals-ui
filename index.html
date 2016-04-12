@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>MB Technology Management</title>
+    <base ng-href="/"/>
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- inject:build:css -->
+    <!-- endinject -->
+    <script>
+        var sConfig = {
+            api: 'http://localhost:8000/'
+        }
+    </script>
+</head>
+<body>
+    <div class="navbar" ui-view="navbar"></div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="content" ui-view="content"></div>
+            </div>
+        </div>
+    </div>
+    <!-- bower:js -->
+    <script src="/vendor/jquery/dist/jquery.js"></script>
+    <script src="/vendor/angular/angular.js"></script>
+    <script src="/vendor/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+    <script src="/vendor/angular-animate/angular-animate.js"></script>
+    <script src="/vendor/angular-messages/angular-messages.js"></script>
+    <script src="/vendor/angular-resource/angular-resource.js"></script>
+    <script src="/vendor/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="/vendor/angular-touch/angular-touch.js"></script>
+    <script src="/vendor/angular-route/angular-route.js"></script>
+    <script src="/vendor/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="/vendor/angular-toastr/dist/angular-toastr.tpls.js"></script>
+    <script src="/vendor/angular-loading-bar/build/loading-bar.js"></script>
+    <script src="/vendor/jquery.uniform/jquery.uniform.js"></script>
+    <script src="/vendor/angular-smart-table/dist/smart-table.js"></script>
+    <!-- endbower -->
+
+    <!-- inject:js -->
+    <script src="/app/app.mdl.js"></script>
+    <script src="/app/common/directives/drv.mdl.js"></script>
+    <script src="/app/common/filters/flt.mdl.js"></script>
+    <script src="/app/common/services/srv.mdl.js"></script>
+    <script src="/app/common/states/layout/layout.mdl.js"></script>
+    <script src="/app/core/customers/customers.mdl.js"></script>
+    <script src="/app/core/security/security.mdl.js"></script>
+    <script src="/app/common/api/customers.srv.js"></script>
+    <script src="/app/common/directives/validation/campre-to.drv.js"></script>
+    <script src="/app/common/services/config/user-token.srv.js"></script>
+    <script src="/app/common/states/layout/navbar/navbar.ctrl.js"></script>
+    <script src="/app/core/customers/list/list.ctrl.js"></script>
+    <script src="/app/core/security/login/login.ctrl.js"></script>
+    <!-- endinject -->
+
+    <!-- inject:build:js -->
+    <!-- endinject -->
+</body>
+</html>

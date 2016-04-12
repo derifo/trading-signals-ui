@@ -1,0 +1,30 @@
+// bower:scss
+@import "../vendor/components-font-awesome/scss/font-awesome.scss";
+// endbower
+
+// Vendor
+@import "vendor/bootstrap/_import";
+@import "vendor/ng-loading-bar";
+@import "vendor/toastr";
+@import "vendor/animate";
+@import "vendor/uniform";
+
+// Common
+@import "fonts";
+@import "common";
+
+// Directives
+
+// States
+@import "states/transitions";
+@import "states/layout/navbar";
+@import "states/security/login";
+@import "states/dashboard/welcome";
+
+body {
+  font-family: "Open Sans", sans-serif;
+  margin-bottom: 100px;
+  overflow-y: scroll;
+}
+
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,900);

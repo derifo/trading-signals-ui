@@ -1,0 +1,52 @@
+{
+  "name": "crm",
+  "description": "Click2Call CRM",
+  "main": "index.js",
+  "authors": [
+    "roee <roy@boaelite.com>"
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.8",
+    "jquery": "~2.1.4",
+    "bootstrap-sass": "bootstrap-sass-official#~3.3.6",
+    "angular-animate": "~1.4.8",
+    "angular-messages": "~1.4.8",
+    "angular-resource": "~1.4.8",
+    "angular-ui-router": "~0.2.15",
+    "components-font-awesome": "~4.5.0",
+    "angular-touch": "~1.4.8",
+    "angular-route": "~1.4.8",
+    "angular-bootstrap": "~0.14.3",
+    "angular-toastr": "~1.6.0",
+    "angular-loading-bar": "~0.8.0",
+    "animate.css": "~3.5.1",
+    "jquery.uniform": "^2.1.2",
+    "angular-smart-table": "^2.1.8"
+  },
+  "overrides": {
+    "socket.io-client": {
+      "main": "socket.io.js"
+    },
+    "angular": {
+      "dependencies": {
+        "jquery": ">=1.10"
+      }
+    },
+    "bootstrap-sass": {
+      "main": [
+        "assets/javascripts/bootstrap.js"
+      ]
+    }
+  }
+}
