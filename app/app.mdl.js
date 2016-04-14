@@ -31,8 +31,18 @@ angular.module('app', [
 		});
 
 		$httpProvider.defaults.useXDomain = true;
+
 		delete $httpProvider.defaults.headers.common['X-Requested-With'];
 
 		// Redirect to default page
 		$urlRouterProvider.otherwise('/');
+	})
+	.run(function ($http) {
+		$http.post('http://localhost:8000/api/aff-ui/login', {
+			email: 'odeliaodi@gmail.com',
+			password: '123456',
+			headers: {
+				"Content-Type": "multipart/form-data"
+			}
+		});
 	});
