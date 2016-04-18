@@ -15,10 +15,7 @@ gulp.task('minify-vendor', function() {
     return gulp.src(mainBowerFiles())
         .pipe(gulpFilter(['*.js']))
         .pipe(concat('vendors.js'))
-        // .pipe(through2.obj(function (chunk, enc, callback) {
-        //     console.log(chunk);
-        //     callback();
-        // }))
+        .pipe(uglify())
         .pipe(rename({
             basename: "vendors",
             suffix: Math.round((new Date()).getTime() / 1000)
