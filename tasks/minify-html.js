@@ -9,9 +9,9 @@ var uglify = require('gulp-uglifyjs');
 gulp.task('minify-html', function () {
     var surfix = Math.round((new Date()).getTime() / 1000);
 
-    return gulp.src('../app/**/*.html')
+    return gulp.src('app/**/*.html')
         .pipe(angularTemplates({ module: 'app', basePath: '/app/' }))
         .pipe(concat('templates' + surfix + '.js'))
-        //.pipe(uglify())
-        .pipe(gulp.dest('../build/js'));
+        .pipe(uglify())
+        .pipe(gulp.dest('build/js'));
 });

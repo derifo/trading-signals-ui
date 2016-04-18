@@ -8,6 +8,9 @@
 @import "vendor/toastr";
 @import "vendor/animate";
 @import "vendor/uniform";
+@import "vendor/charts";
+@import "vendor/daterangepicker";
+@import "vendor/vmap";
 
 // Common
 @import "fonts";
@@ -19,7 +22,7 @@
 @import "states/transitions";
 @import "states/layout/navbar";
 @import "states/security/login";
-@import "states/dashboard/welcome";
+@import "states/charts/customers-vmap";
 
 body {
   font-family: "Open Sans", sans-serif;

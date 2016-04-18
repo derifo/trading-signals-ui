@@ -21,5 +21,9 @@ gulp.task('inject-build', [ 'minify' ], function() {
     return gulp.src('./index.html')
         .pipe(inject(gulp.src(['./build/**/vendor*.js', './build/**/scripts*.js', './build/**/templates*.js'], {read: false}), {starttag: '<!-- inject:build:js -->'}))
         .pipe(inject(gulp.src('./build/**/*.css', {read: false}), {starttag: '<!-- inject:build:css -->'}))
-        .pipe(gulp.dest('./'))
+        .pipe(replace(/<\!-- bower:js -->[\n\t\r\s\d\wa-zA-Z\<\>\"\=\/\.\-]{0,}<\!-- endbower -->[\s\t\n]{0,}/gm, ''))
+        .pipe(replace(/<\!-- inject:js -->[\n\t\r\s\d\wa-zA-Z\<\>\"\=\/\.\-]{0,}<\!-- endinject -->[\s\t\n]{0,}/gm, ''))
+        .pipe(replace('<link rel="stylesheet" href="/css/style.css">', ''))
+        .pipe(replace('http://localhost:8000/', 'http://jackpotsstrategy.com/'))
+        .pipe(gulp.dest('./build'))
 });

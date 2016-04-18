@@ -17,10 +17,14 @@ angular.module('app', [
 		'smart-table',
 		'ui.router',
 		'toastr',
+		'chart.js',
+		'daterangepicker',
+		'countUpModule',
 		'angular-loading-bar',
 		'app.common.services',
 		'app.common.directives',
 		'app.states.layout',
+		'app.states.charts',
 		'app.core.customers',
 		'app.core.security'
 	])
@@ -31,18 +35,56 @@ angular.module('app', [
 		});
 
 		$httpProvider.defaults.useXDomain = true;
+		$httpProvider.defaults.withCredentials = true;
 
 		delete $httpProvider.defaults.headers.common['X-Requested-With'];
+
+
+		$httpProvider.defaults.headers.common = {};
+		$httpProvider.defaults.headers.post = {
+			'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+		};
+
+		$httpProvider.defaults.headers.put = {};
+		$httpProvider.defaults.headers.patch = {};
+
+		$httpProvider.defaults.transformRequest = function(data){
+			if (data === undefined) {
+				return data;
+			}
+
+			return $.param(data);
+		};
 
 		// Redirect to default page
 		$urlRouterProvider.otherwise('/');
 	})
-	.run(function ($http) {
-		$http.post('http://localhost:8000/api/aff-ui/login', {
-			email: 'odeliaodi@gmail.com',
-			password: '123456',
-			headers: {
-				"Content-Type": "multipart/form-data"
+	.run(function ($http, $state) {
+		$http.defaults.transformResponse.unshift(function (data, headers, code) {
+			if (code == 401 && $state.current.name != 'app.security.login') {
+				$state.go('app.security.login');
 			}
+
+			return data;
 		});
+
+		$http.appendTransform = function (defaults) {
+
+			// We can't guarantee that the default transformation is an array
+			defaults = angular.isArray(defaults) ? defaults : [defaults];
+
+			// Append the new transformation to the defaults
+			return defaults.concat($http.defaults.transformResponse);
+		};
+
+		window.login = function () {
+			$http.post('http://localhost:8000/api/aff-ui/login', {
+				email: 'odeliaodi@gmail.com',
+				password: '123456'
+			});
+		};
+
+		window.logout = function () {
+			$http.post('http://localhost:8000/api/aff-ui/logout');
+		};
 	});

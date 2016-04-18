@@ -7,12 +7,18 @@ var rename = require("gulp-rename");
 var ngAnnotate = require('gulp-ng-annotate');
 var mainBowerFiles = require('main-bower-files');
 var gulpFilter = require('gulp-filter');
+var concat = require('gulp-concat');
+var through2 = require('through2');
 
 gulp.task('minify-vendor', function() {
 
     return gulp.src(mainBowerFiles())
         .pipe(gulpFilter(['*.js']))
-        .pipe(uglify())
+        .pipe(concat('vendors.js'))
+        // .pipe(through2.obj(function (chunk, enc, callback) {
+        //     console.log(chunk);
+        //     callback();
+        // }))
         .pipe(rename({
             basename: "vendors",
             suffix: Math.round((new Date()).getTime() / 1000)
