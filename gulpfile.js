@@ -9,6 +9,6 @@ var dir = requireDir('./tasks');
 
 
 gulp.task('minify', [ 'clean-build', 'minify-html', 'minify-vendor', 'minify-app', 'minify-css' ]);
-gulp.task('build', [ 'minify', 'copyfonts', 'inject-build' ]);
+gulp.task('build', [ 'minify', 'copyfonts', 'copytemplates', 'inject-build' ]);
 gulp.task('fix-index', [ 'inject-app', 'wiredep' ]);
 gulp.task('server', [ 'serve', 'watch' ]);

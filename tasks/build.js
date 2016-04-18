@@ -13,6 +13,11 @@ gulp.task('copyfonts', function() {
         .pipe(gulp.dest('./build/fonts'));
 });
 
+gulp.task('copytemplates', function() {
+    return gulp.src('./app/**/*.html')
+        .pipe(gulp.dest('./build/app'));
+});
+
 gulp.task('clean-build', function() {
     return del(['build/js', 'build/css']);
 });
