@@ -51,6 +51,7 @@ angular.module('app.core.customers')
 				players: 0
 			};
 
+			// TODO. Add new ui view for the tiles
 			customersAPI.getStatusStats(filters).$promise.then(function (results) {
 				results.forEach(function (val) {
 					$scope.data.customers += parseInt(val.customers);
