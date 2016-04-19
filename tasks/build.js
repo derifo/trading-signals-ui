@@ -30,5 +30,6 @@ gulp.task('inject-build', [ 'minify' ], function() {
         .pipe(replace(/<\!-- inject:js -->[\n\t\r\s\d\wa-zA-Z\<\>\"\=\/\.\-]{0,}<\!-- endinject -->[\s\t\n]{0,}/gm, ''))
         .pipe(replace('<link rel="stylesheet" href="/css/style.css">', ''))
         .pipe(replace('http://localhost:8000/', 'http://jackpotsstrategy.com/'))
+        .pipe(replace('build/', ''))
         .pipe(gulp.dest('./build'))
 });
