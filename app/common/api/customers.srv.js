@@ -22,9 +22,9 @@ angular.module('app.common.services')
 		});
 
 		return $resource(sConfig.api + 'api/aff-ui/customers/:id', {}, {
-			query: { method: 'GET', isArray: true, transformResponse: transformResponse },
-			getStatusStats: { method: 'GET', isArray: true, url: sConfig.api + 'api/aff-ui/customers/status-stats' },
-			getCountryStats: { method: 'GET', isArray: true, url: sConfig.api + 'api/aff-ui/customers/by-country' },
+			query: { method: 'GET', isArray: true, transformResponse: transformResponse, cache: true },
+			getStatusStats: { method: 'GET', isArray: true, url: sConfig.api + 'api/aff-ui/customers/status-stats', cache: true },
+			getCountryStats: { method: 'GET', isArray: true, url: sConfig.api + 'api/aff-ui/customers/by-country', cache: true },
 			save: { method: 'POST', params: { id: "@id" } }
 		});
 	});

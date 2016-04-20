@@ -23,6 +23,10 @@ angular.module('app.core.customers', [ 'ui.router' ])
 				'customerVmap@app.customers.breakdown': {
 					templateUrl: '/app/common/states/charts/customers-vmap/customers-vmap.tpl.html',
 					controller: 'app.charts.customersVmap'
+				},
+				'customerTile@app.customers.breakdown': {
+					templateUrl: '/app/common/states/charts/customers-tile/customers-tile.tpl.html',
+					controller: 'app.charts.customersTile'
 				}
 			}
 		});

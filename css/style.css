@@ -11659,6 +11659,10 @@ input.uniform-input, input.uniform-input:focus {
   width: 100%;
   height: 400px; }
 
+.customers-status-chart canvas {
+  width: 100% !important;
+  height: 272px !important; }
+
 body {
   font-family: "Open Sans", sans-serif;
   margin-bottom: 100px;

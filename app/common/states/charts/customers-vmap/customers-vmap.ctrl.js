@@ -8,7 +8,7 @@
  * Controller of the yeomanApp
  */
 angular.module('app.states.charts').controller('app.charts.customersVmap',
-	function ($scope, $rootScope, customersAPI) {
+	function ($scope, customersAPI) {
 
 		$scope.$on('filterClicked', function (e, filters) {
 			customersAPI.getCountryStats(filters).$promise.then(function (results) {

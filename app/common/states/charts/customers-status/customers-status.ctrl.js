@@ -8,13 +8,12 @@
  * Controller of the yeomanApp
  */
 angular.module('app.states.charts').controller('app.charts.customersStatus',
-	function ($scope, $rootScope, customersAPI) {
+	function ($scope, customersAPI) {
 
 		$scope.labels = [];
 		$scope.series = [ 'Customers', 'Players' ];
 
 		$scope.$on('filterClicked', function (e, filters) {
-			$scope.data = [];
 
 			customersAPI.getStatusStats(filters).$promise.then(function (results) {
 				var data = [[], []], labels = [];
@@ -25,8 +24,8 @@ angular.module('app.states.charts').controller('app.charts.customersStatus',
 						+ (( val.month > 9 ? '': '0' ) + val.month) + '-'
 						+ ( val.day > 9 ? '': '0' ) + val.day);
 
-					data[0].push(val.customers);
-					data[1].push(val.players);
+					data[0].push(parseInt(val.customers));
+					data[1].push(parseInt(val.players));
 				});
 
 				$scope.data = data;
