@@ -59,13 +59,20 @@ angular.module('app', [
 		// Redirect to default page
 		$urlRouterProvider.otherwise('/');
 	})
-	.run(function ($http, $state) {
+	.run(function ($rootScope, $http, $state) {
 		$http.defaults.transformResponse.unshift(function (data, headers, code) {
 			if (code == 401 && $state.current.name != 'app.security.login') {
 				$state.go('app.security.login');
 			}
 
 			return data;
+		});
+
+		$rootScope.$on('$stateChangeSuccess', function () {
+			// Making a login check
+			if ($state.current.name != 'app.security.login') {
+				$http.get(sConfig.api + 'api/traders/is_logged');
+			}
 		});
 
 		$http.appendTransform = function (defaults) {
@@ -75,16 +82,5 @@ angular.module('app', [
 
 			// Append the new transformation to the defaults
 			return defaults.concat($http.defaults.transformResponse);
-		};
-
-		window.login = function () {
-			$http.post('http://localhost:8000/api/aff-ui/login', {
-				email: 'odeliaodi@gmail.com',
-				password: '123456'
-			});
-		};
-
-		window.logout = function () {
-			$http.post('http://localhost:8000/api/aff-ui/logout');
 		};
 	});

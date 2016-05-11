@@ -23,11 +23,6 @@ angular.module('app.states.layout', [
             }
         }
     });
-
-    $stateProvider.state('app.security', {
-        url: 'auth/',
-        abstract: true
-    });
 })
 .run(function($rootScope) {
     $rootScope.image = function(img) {

@@ -6,21 +6,6 @@
         <div class="clearfix"></div>
         <form ng-submit="filterSubmitClicked()">
             <div class="col-xs-4">
-                <div class="form-group">
-                    <label for="source">Source</label>
-                    <select name="source" class="form-control" id="source" ng-model="filters.source">
-                        <option value="0" selected="selected">All</option>
-                        <option ng-repeat="source in sources" value="{{source}}">{{source}}</option>
-                    </select>
-                </div>
-            </div>
-            <div class="col-xs-4">
-                <div class="form-group">
-                    <label for="range">Date Range</label>
-                    <input id="range" options="datePicker.options" date-range-picker class="form-control date-picker" type="text" ng-model="filters.dateRange" />
-                </div>
-            </div>
-            <div class="col-xs-4">
                 <button type="submit" class="btn btn-primary btn-inline-submit">Submit</button>
             </div>
         </form>

@@ -1,1 +1,6 @@
 http://gregpike.net/demos/angular-local-storage/demo/demo.html
+
+id
+trade_id
+qualified
+quality

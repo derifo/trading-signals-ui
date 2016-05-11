@@ -16,8 +16,6 @@
 @import "fonts";
 @import "common";
 
-// Directives
-
 // States
 @import "states/transitions";
 @import "states/layout/navbar";
@@ -25,10 +23,9 @@
 @import "states/charts/customers-vmap";
 @import "states/charts/customers-status";
 
+// Directives
 body {
   font-family: "Open Sans", sans-serif;
   margin-bottom: 100px;
   overflow-y: scroll;
 }
-
-@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,900);

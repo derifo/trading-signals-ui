@@ -16,14 +16,6 @@ angular.module('app.core.customers', [ 'ui.router' ])
 					templateUrl: '/app/core/customers/breakdown/breakdown.tpl.html',
 					controller: 'app.core.customers.breakdownCtrl'
 				},
-				'customerStatusChart@app.customers.breakdown': {
-					templateUrl: '/app/common/states/charts/customers-status/customers-status.tpl.html',
-					controller: 'app.charts.customersStatus'
-				},
-				'customerVmap@app.customers.breakdown': {
-					templateUrl: '/app/common/states/charts/customers-vmap/customers-vmap.tpl.html',
-					controller: 'app.charts.customersVmap'
-				},
 				'customerTile@app.customers.breakdown': {
 					templateUrl: '/app/common/states/charts/customers-tile/customers-tile.tpl.html',
 					controller: 'app.charts.customersTile'

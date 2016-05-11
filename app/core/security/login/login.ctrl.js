@@ -9,12 +9,12 @@
  */
 angular.module('app.core.security')
 	.controller('app.core.security.loginCtrl',
-	function ($scope, $timeout, affiliatesAPI, $state) {
+	function ($scope, $timeout, tradersAPI, $state) {
 		$scope.formSubmitted = function() {
 			var credentials = { email: $scope.credentials.email, password: $scope.credentials.password };
 			$scope.submitted = true;
 
-			affiliatesAPI.login(credentials).$promise.then(function (res) {
+			tradersAPI.login(credentials).$promise.then(function (res) {
 				if(res.error) {
 					$scope.error = 'Invalid email or password combination'
 				}
