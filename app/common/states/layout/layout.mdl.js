@@ -13,10 +13,14 @@ angular.module('app.states.layout', [
     'ui.router'
 ])
 .config(function ($stateProvider) {
-    $stateProvider.state('app.customers', {
-        url: '',
+    $stateProvider.state('app', {
+        url: '/',
         abstract: true,
         views: {
+            'header@': {
+                templateUrl: 'app/common/states/layout/header/header.tpl.html',
+                controller: 'app.states.layout.headerCtrl'
+            },
             'navbar@': {
                 templateUrl: 'app/common/states/layout/navbar/navbar.tpl.html',
                 controller: 'app.states.layout.navbarCtrl'

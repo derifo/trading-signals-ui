@@ -1,0 +1,92 @@
+.signals-list {
+  text-align: center;
+
+  .signals-row {
+    @extend .row;
+    margin: 0 0 7px 0;
+    float: left;
+    width: 100%;
+
+    .signals-box-container {
+      @extend .col-sm-3;
+      height: 68px;
+      padding: 0 2px 0 0;
+
+      &.last-box {
+        padding: 0;
+      }
+
+      .signals-box {
+        background: #E7EBF6;
+        color: #000;
+        line-height: 21px;
+        height: 100%;
+        padding-top: 13px;
+
+        .btn {
+          width: 50%;
+          font-size: 18px;
+        }
+
+        .score-value {
+          color: $brand-success
+        }
+
+        &.expires-box {
+          padding-top: 7px;
+
+          .expires-text {
+            line-height: 30px
+          }
+
+          .expires-value {
+            font-weight: 400;
+            font-size: 23px;
+          }
+        }
+
+        &.score-box {
+          padding-top: 7px;
+
+          .score-text {
+            line-height: 30px;
+          }
+
+          .score-value {
+            font-size: 22px;
+          }
+        }
+
+        &.asset-box {
+          padding-top: 17px;
+
+          .asset-title {
+            text-align: center;
+            padding-right: 58px;
+          }
+
+          .asset-logo {
+            text-align: right;
+          }
+
+          img {
+            line-height: 61px;
+          }
+
+          span {
+            font-size: 19px;
+            padding-left: 10px;
+            line-height: 44px;
+          }
+        }
+      }
+    }
+
+    .signals-dropdown {
+      float: left;
+      width: 100%;
+      background: #D2DEF0;
+      cursor: pointer;
+    }
+  }
+}

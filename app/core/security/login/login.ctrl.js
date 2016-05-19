@@ -19,7 +19,7 @@ angular.module('app.core.security')
 					$scope.error = 'Invalid email or password combination'
 				}
 				else {
-					$state.transitionTo('app.customers.breakdown');
+					$state.transitionTo('app.dashboard');
 				}
 			});
 		}

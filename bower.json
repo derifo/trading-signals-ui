@@ -65,6 +65,9 @@
         "dist/maps/jquery.vmap.world.js"
       ]
     },
+    "bootstrap": {
+      "main": []
+    },
     "bootstrap-sass": {
       "main": [
         "assets/javascripts/bootstrap.js"

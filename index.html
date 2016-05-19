@@ -14,7 +14,8 @@
     </script>
 </head>
 <body>
-    <div class="navbar" ui-view="navbar"></div>
+    <div class="top-navbar" ui-view="navbar"></div>
+    <div class="header" ui-view="header"></div>
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
@@ -41,7 +42,6 @@
     <script src="/vendor/angular-chart.js/dist/angular-chart.js"></script>
     <script src="/vendor/jqvmap/dist/jquery.vmap.min.js"></script>
     <script src="/vendor/jqvmap/dist/maps/jquery.vmap.world.js"></script>
-    <script src="/vendor/bootstrap/dist/js/bootstrap.js"></script>
     <script src="/vendor/moment/moment.js"></script>
     <script src="/vendor/bootstrap-daterangepicker/daterangepicker.js"></script>
     <script src="/vendor/angular-daterangepicker/js/angular-daterangepicker.js"></script>
@@ -56,16 +56,29 @@
     <script src="/app/common/services/srv.mdl.js"></script>
     <script src="/app/common/states/charts/charts.mdl.js"></script>
     <script src="/app/common/states/layout/layout.mdl.js"></script>
-    <script src="/app/core/customers/customers.mdl.js"></script>
+    <script src="/app/common/states/signals/signals.mdl.js"></script>
+    <script src="/app/core/dashboard/dashboard.mdl.js"></script>
     <script src="/app/core/security/security.mdl.js"></script>
+    <script src="/app/core/signals/signals.mdl.js"></script>
+    <script src="/app/core/trades/trades.mdl.js"></script>
+    <script src="/app/common/api/merchants-signals.srv.js"></script>
+    <script src="/app/common/api/signals.srv.js"></script>
     <script src="/app/common/api/traders.srv.js"></script>
+    <script src="/app/common/directives/count-down.drv.js"></script>
     <script src="/app/common/directives/count-up.drv.js"></script>
+    <script src="/app/common/directives/score.drv.js"></script>
     <script src="/app/common/directives/validation/campre-to.drv.js"></script>
     <script src="/app/common/services/config/user-token.srv.js"></script>
-    <script src="/app/common/states/charts/customers-tile/customers-tile.ctrl.js"></script>
+    <script src="/app/common/states/charts/tiles/tiles.ctrl.js"></script>
+    <script src="/app/common/states/layout/header/header.ctrl.js"></script>
     <script src="/app/common/states/layout/navbar/navbar.ctrl.js"></script>
-    <script src="/app/core/customers/breakdown/breakdown.ctrl.js"></script>
+    <script src="/app/common/states/signals/list/list.ctrl.js"></script>
+    <script src="/app/core/dashboard/dashboard.ctrl.js"></script>
     <script src="/app/core/security/login/login.ctrl.js"></script>
+    <script src="/app/core/signals/history/history.ctrl.js"></script>
+    <script src="/app/core/signals/live/live.ctrl.js"></script>
+    <script src="/app/core/trades/history/history.ctrl.js"></script>
+    <script src="/app/core/trades/open/open.ctrl.js"></script>
     <!-- endinject -->
 
     <!-- inject:build:js -->

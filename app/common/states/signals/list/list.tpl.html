@@ -1,0 +1,43 @@
+<div class="signals-list">
+    <div class="signals-row signals-row-{{ $index }}" ng-repeat="signal in signals track by $index">
+        <div class="signals-box-container">
+            <div class="signals-box asset-box">
+                <div class="row">
+                    <div class="col-xs-4 asset-logo">
+                        <img src="/img/assets/{{ signal.signal.asset.socket_id }}.png" alt="">
+                    </div>
+                    <div class="col-xs-8 asset-title">
+                        <span>{{ signal.signal.asset.title }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="signals-box-container">
+            <div class="signals-box expires-box">
+                <div class="expires-text">Time Remaining</div>
+                <div class="expires-value" countdown end-time="{{ signal.expires | date : 'medium'}}"></div>
+            </div>
+        </div>
+        <div class="signals-box-container">
+            <div class="signals-box score-box">
+                <div class="score-text">Dynamic Scoring</div>
+                <div class="score-value" score="{{ signal.signal.score }}"></div>
+            </div>
+        </div>
+        <div class="signals-box-container last-box">
+            <div class="signals-box">
+                <button class="btn btn-primary">Buying Order
+                <span class="fa fa-angle-double-right"></span>
+                </button>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="signal-info">
+            <canvas></canvas>
+        </div>
+        <div class="clearfix"></div>
+        <div class="signals-dropdown">
+            <span class="fa fa-angle-double-down"></span>
+        </div>
+    </div>
+</div>

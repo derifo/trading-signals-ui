@@ -1,0 +1,58 @@
+<div class="customers-tiles">
+    <div class="row">
+        <div class="col-md-4 col-sm-12">
+            <div class="tile tile-default">
+                <div class="tile-box tile-thumb">
+                    <div class="fa fa-dollar"></div>
+                </div>
+                <div class="tile-box tile-main">
+                    <h3 class="tile-header">CURRENT BALANCE
+                    </h3>
+                    <div count-up options="{ prefix: '$' }" end-val="stats.balance" class="tile-value"></div>
+                </div>
+                <div class="tile-box tile-secondary">
+                    <h3 class="tile-header">INVESTMENT
+                    </h3>
+                    <div count-up options="{ prefix: '$' }" end-val="stats.investment" class="tile-value"></div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <div class="tile tile-default">
+                <div class="tile-box tile-thumb">
+                    <div class="fa fa-line-chart"></div>
+                </div>
+                <div class="tile-box tile-main">
+                    <h3 class="tile-header">OPEN POSITIONS
+                    </h3>
+                    <div count-up end-val="stats.open" class="tile-value"></div>
+                </div>
+                <div class="tile-box tile-secondary">
+                    <h3 class="tile-header">POTENTIAL PROFIT
+                    </h3>
+                    <div count-up options="{ prefix: '$' }" end-val="stats.potential_profit" class="tile-value"></div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <div class="tile tile-default">
+                <div class="tile-box tile-thumb">
+                    <div class="fa fa-area-chart"></div>
+                </div>
+                <div class="tile-box tile-main">
+                    <h3 class="tile-header">PERSONAL WIN RATE
+                    </h3>
+                    <div count-up end-val="stats.win_rate" class="tile-value"></div>
+                </div>
+                <div class="tile-box tile-secondary">
+                    <h3 class="tile-header">TOTAL WIN RATE
+                    </h3>
+                    <div count-up end-val="stats.win_rate" class="tile-value"></div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>

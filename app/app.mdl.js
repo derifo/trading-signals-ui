@@ -25,13 +25,17 @@ angular.module('app', [
 		'app.common.directives',
 		'app.states.layout',
 		'app.states.charts',
-		'app.core.customers',
+		'app.states.signals',
+		'app.core.dashboard',
+		'app.core.signals',
+		'app.core.trades',
 		'app.core.security'
 	])
-	.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
-		$stateProvider.state('app', {
-			url: '/',
-			abstract: true
+	.config(function ($httpProvider, $stateProvider, $urlRouterProvider, ChartJsProvider) {
+
+		ChartJsProvider.setOptions({
+			responsive: true,
+			maintainAspectRatio: false
 		});
 
 		$httpProvider.defaults.useXDomain = true;

@@ -1,0 +1,70 @@
+.tile {
+  padding: 10px 0;
+  height: 92px;
+  text-align: center;
+  position: relative;
+
+  &.tile-default {
+    color: #000;
+    background-color: $brand-default;
+  }
+
+  .tile-box {
+    position: relative;
+    float: left;
+    height: 100%;
+
+    &.tile-thumb {
+      width: 20%;
+    }
+
+    &.tile-main {
+      width: 40%;
+      border-right: 2px solid rgba(0,0,0,0.2);
+    }
+
+    &.tile-secondary {
+      width: 40%;
+    }
+  }
+
+  .tile-thumb .fa {
+    margin: auto;
+    width: 70px;
+    height: 70px;
+    margin-left: 20px;
+    line-height: 75px;
+    font-size: 37px;
+    border-radius: 100%;
+    color: #fff;
+
+    &.fa-dollar {
+      line-height: 55px;
+      border: 8px solid;
+      color: #3DB149;
+      background: #fff;
+    }
+
+    &.fa-line-chart {
+      background: #FFDD17;
+    }
+
+    &.fa-area-chart {
+      background: #8F2B8C;
+    }
+  }
+
+  .tile-header {
+    width: auto;
+    margin: 0;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 26px;
+  }
+
+  .tile-value {
+    font-size: 42px;
+    line-height: 45px;
+    font-weight: 300;
+  }
+}

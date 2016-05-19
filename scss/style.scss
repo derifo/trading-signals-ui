@@ -19,13 +19,19 @@
 // States
 @import "states/transitions";
 @import "states/layout/navbar";
+@import "states/layout/header";
 @import "states/security/login";
-@import "states/charts/customers-vmap";
-@import "states/charts/customers-status";
+@import "states/charts/customers-tile";
+@import "states/signals/list";
 
 // Directives
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Roboto";
   margin-bottom: 100px;
+  font-weight: 300;
   overflow-y: scroll;
+}
+
+a {
+  cursor: pointer;
 }
