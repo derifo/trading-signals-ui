@@ -1,11 +1,11 @@
 server
 {
         listen 172.31.47.227:80;
-        server_name tradingsignals.mbtechnologyil.com www.tradingsignals.mbtechnologyil.com;
-        access_log /var/log/nginx/domains/tradingsignals.mbtechnologyil.com.log;
-        access_log /var/log/nginx/domains/tradingsignals.mbtechnologyil.com.bytes bytes;
-        error_log /var/log/nginx/domains/affilaites.mbtechnologyil.com.error.log;
-        root /home/jack/public_html/mbtechnology-affiliate/build/;
+        server_name tradingsignals.tech www.tradingsignals.tech;
+        access_log /var/log/nginx/domains/tradingsignals.tech.log;
+        access_log /var/log/nginx/domains/tradingsignals.tech.bytes bytes;
+        error_log /var/log/nginx/domains/tradingsignals.tech.error.log;
+        root /home/jack/public_html/trading-signals-ui/build/;
         index index.php index.html index.htm;
         # use fastcgi for all php files
         location ~ \.php$
@@ -25,6 +25,21 @@ server
                 if (-f $request_filename)
                 {
                         fastcgi_pass unix:/usr/local/php/php/fpm/jack.sock;
-               	}
-       	}
+                }
+        }
 }
+
+
+parameters:
+    database_host: 'jackpot.cgfgdsllmsar.eu-west-1.rds.amazonaws.com:3306'
+    database_port: null
+    database_name: techmark
+    database_user: jackpot
+    database_password: 6fX5MbSEmLmnj9ys
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: null
+    mailer_password: null
+    secret: OKiWillChangeItBRO
+
+

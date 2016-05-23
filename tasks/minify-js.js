@@ -13,9 +13,9 @@ var through2 = require('through2');
 gulp.task('minify-vendor', function() {
 
     return gulp.src(mainBowerFiles())
-        .pipe(gulpFilter(['*.js']))
+        .pipe(gulpFilter(['angular.js', 'angular-*.js', '*.js']))
         .pipe(concat('vendors.js'))
-        .pipe(uglify())
+        // .pipe(uglify())
         .pipe(rename({
             basename: "vendors",
             suffix: Math.round((new Date()).getTime() / 1000)
