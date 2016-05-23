@@ -17,10 +17,12 @@ angular.module('app', [
 		'smart-table',
 		'ui.router',
 		'toastr',
-		'chart.js',
 		'daterangepicker',
 		'countUpModule',
+		'easypiechart',
+		'ngNotify',
 		'angular-loading-bar',
+		'ui.bootstrap-slider',
 		'app.common.services',
 		'app.common.directives',
 		'app.states.layout',
@@ -31,13 +33,7 @@ angular.module('app', [
 		'app.core.trades',
 		'app.core.security'
 	])
-	.config(function ($httpProvider, $stateProvider, $urlRouterProvider, ChartJsProvider) {
-
-		ChartJsProvider.setOptions({
-			responsive: true,
-			maintainAspectRatio: false
-		});
-
+	.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
 		$httpProvider.defaults.useXDomain = true;
 		$httpProvider.defaults.withCredentials = true;
 
@@ -63,7 +59,13 @@ angular.module('app', [
 		// Redirect to default page
 		$urlRouterProvider.otherwise('/');
 	})
-	.run(function ($rootScope, $http, $state) {
+	.run(function ($rootScope, $http, $state, ngNotify) {
+		ngNotify.config({
+			position: 'top',
+			duration: 4000,
+			html: true
+		});
+
 		$http.defaults.transformResponse.unshift(function (data, headers, code) {
 			if (code == 401 && $state.current.name != 'app.security.login') {
 				$state.go('app.security.login');

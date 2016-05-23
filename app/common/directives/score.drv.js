@@ -20,9 +20,6 @@ angular.module('app.common.directives')
                     else {
                         element.append($('<span></span>', { 'class': 'fa fa-star-o' }))
                     }
-
-                    console.log(i);
-                    console.log(score);
                 }
             }
         };

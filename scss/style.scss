@@ -10,7 +10,8 @@
 @import "vendor/uniform";
 @import "vendor/charts";
 @import "vendor/daterangepicker";
-@import "vendor/vmap";
+@import "vendor/slider";
+@import "vendor/ng-notify";
 
 // Common
 @import "fonts";
@@ -22,6 +23,8 @@
 @import "states/layout/header";
 @import "states/security/login";
 @import "states/charts/customers-tile";
+@import "states/charts/statistics";
+@import "states/charts/members-trades";
 @import "states/signals/list";
 
 // Directives
@@ -34,4 +37,10 @@ body {
 
 a {
   cursor: pointer;
+}
+
+.candle-stick-custom {
+  display: block;
+  width: 100%;
+  height: 300px;
 }

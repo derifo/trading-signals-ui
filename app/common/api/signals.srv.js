@@ -12,6 +12,7 @@ angular.module('app.common.services')
 
 		return $resource(sConfig.api + 'api/traders/signals/:id', {}, {
 			query: { method: 'GET', isArray: true },
+			buy: { method: 'POST', url: sConfig.api + 'api/traders/buy' },
 			save: { method: 'POST', params: { id: "@id" } }
 		});
 	});

@@ -3,9 +3,138 @@
 
   .signals-row {
     @extend .row;
-    margin: 0 0 7px 0;
+    margin: 0 0 24px 0;
     float: left;
     width: 100%;
+    box-shadow: 0 0 12px 0 rgba(0,0,0,0.3);
+
+    .signal-info {
+      position: relative;
+
+      .rate-box {
+        font-size: 22px;
+        position: absolute;
+        right: 0;
+        top: 10px;
+        width: 130px;
+        margin: auto;
+        color: #fff;
+
+        &.down {
+          background: red;
+        }
+
+        &.up {
+          background: green;
+        }
+      }
+
+      .asset-buy {
+        float: left;
+        width: 100%;
+        background: #E7EBF6;
+
+        .input-group {
+          max-width: 110px;
+          line-height: 140px;
+          margin-top: 16px;
+          margin-left: 19px;
+        }
+
+        input {
+          text-align: center;
+          margin: auto;
+          float: right;
+        }
+
+        button {
+          margin: 17px 0;
+        }
+
+        .slider-selection {
+          background: rgb(47, 121, 184);
+        }
+
+        .slider-track-high {
+          background: #fff;
+        }
+      }
+      .asset-table {
+
+        .info-row {
+
+          padding: 0;
+
+          .info-header {
+            background: #9FB5DA;
+            border: 1px solid #fff;
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 36px;
+
+          }
+
+          .info-value {
+            position: relative;
+            border: 1px solid #fff;
+            background: #CDD7EA;
+            line-height: 80px;
+            height: 80px;
+
+            &.info-value-asset {
+              line-height: 38px;
+            }
+
+            &.info-value-rate {
+              font-size: 38px;
+
+              &.up {
+                color: green;
+              }
+
+              &.down {
+                color: red;
+              }
+            }
+
+            &.info-value-expires {
+              font-size: 22px;
+            }
+
+            &.info-value-direction {
+
+              .direction-container {
+                position: absolute;
+                left: 0;
+                right: 0;
+                width: 100%;
+                max-width: 160px;
+                margin: auto;
+
+                .direction-text {
+                  font-size: 30px;
+                  display: block;
+                  width: 50%;
+                  float: left;
+                }
+
+                .direction-caret {
+                  font-size: 89px;
+                  padding-top: 0;
+                  display: block;
+                  line-height: 73px;
+                  color: green;
+                  width: 100%;
+                  max-width: 50px;
+                  float: left;
+                  margin-top: 16px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
 
     .signals-box-container {
       @extend .col-sm-3;

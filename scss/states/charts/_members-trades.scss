@@ -1,0 +1,27 @@
+$width: 60px;
+
+.member-trade {
+  height: $width;
+  line-height: $width;
+
+  .member-trade-center {
+    padding: 10px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+  }
+
+  .asset-text {
+    font-size: 18px;
+    font-weight: 400;
+    border-right: 1px solid rgba(0,0,0,0.2);
+  }
+
+  .avatar {
+    height: $width;
+    border-radius: 100%;
+    margin-right: 20px;
+  }
+
+  .direction {
+    max-width: 50px;
+  }
+}

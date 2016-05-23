@@ -7,8 +7,7 @@
  * # AboutCtrl
  * Controller of the yeomanApp
  */
-angular.module('app.core.dashboard')
-	.controller('app.core.dashboardCtrl',
-	function ($scope, tradersAPI, $timeout) {
-	
+angular.module('app.states.charts').controller('app.charts.membersTrades',
+	function ($scope, tradersAPI) {
+
 	});
