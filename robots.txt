@@ -1,45 +1,32 @@
-server
-{
-        listen 172.31.47.227:80;
-        server_name tradingsignals.tech www.tradingsignals.tech;
-        access_log /var/log/nginx/domains/tradingsignals.tech.log;
-        access_log /var/log/nginx/domains/tradingsignals.tech.bytes bytes;
-        error_log /var/log/nginx/domains/tradingsignals.tech.error.log;
-        root /home/jack/public_html/trading-signals-ui/build/;
-        index index.php index.html index.htm;
-        # use fastcgi for all php files
-        location ~ \.php$
-        {
-                try_files $uri =404;
-                fastcgi_split_path_info ^(.+\.php)(/.+)$;
-                include /etc/nginx/fastcgi_params;
-                fastcgi_index index.php;
-                fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-                fastcgi_buffer_size 128k;
-                fastcgi_buffers 256 16k;
-                fastcgi_busy_buffers_size 256k;
-                fastcgi_temp_file_write_size 256k;
-                fastcgi_send_timeout 600;
-                fastcgi_read_timeout 600;
-                fastcgi_intercept_errors on;
-                if (-f $request_filename)
-                {
-                        fastcgi_pass unix:/usr/local/php/php/fpm/jack.sock;
-                }
+server {
+    listen 172.31.47.227:80;
+    server_name tradingsignals.mbtechnologyil.com www.tradingsignals.mbtechnologyil.com;
+    access_log /var/log/nginx/domains/tradingsignals.mbtechnologyil.com.log;
+    access_log /var/log/nginx/domains/tradingsignals.mbtechnologyil.com.bytes bytes;
+    error_log /var/log/nginx/domains/tradingsignals.mbtechnologyil.com.error.log;
+    root /home/jack/public_html/trading-signals/web;
+    # strip app.php/ prefix if it is present
+    rewrite ^/app\.php/?(.*)$ /$1 permanent;
+    location / {
+        index app.php;
+        try_files $uri @rewriteapp;
+    }
+    location @rewriteapp {
+       	rewrite ^(.*)$ /app.php/$1 last;
+    }
+    # pass the PHP scripts to FastCGI server from upstream phpfcgi
+    location ~ ^/(app|app_dev|config)\.php(/|$) {
+        fastcgi_pass unix:/usr/local/php/php/fpm/jack.sock;
+        fastcgi_split_path_info ^(.+\.php)(/.*)$;
+        include /etc/nginx/fastcgi_params;
+        fastcgi_param  SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_param  HTTPS off;
+        fastcgi_buffer_size 128k;
+        fastcgi_buffers 256 16k;
+        fastcgi_busy_buffers_size 256k;
+        fastcgi_temp_file_write_size 256k;
+        fastcgi_send_timeout 600;
+        fastcgi_read_timeout 600;
+        fastcgi_intercept_errors on;
         }
 }
-
-
-parameters:
-    database_host: 'jackpot.cgfgdsllmsar.eu-west-1.rds.amazonaws.com:3306'
-    database_port: null
-    database_name: techmark
-    database_user: jackpot
-    database_password: 6fX5MbSEmLmnj9ys
-    mailer_transport: smtp
-    mailer_host: 127.0.0.1
-    mailer_user: null
-    mailer_password: null
-    secret: OKiWillChangeItBRO
-
-
