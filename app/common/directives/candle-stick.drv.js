@@ -67,7 +67,7 @@ angular.module('app.common.directives')
                         "categoryField": "date",
                         "categoryAxis": {
                             "parseDates": true,
-                            "minPeriod": "mm"
+                            "minPeriod": "10mm"
                         },
                         "dataProvider": csData,
                         "export": {
