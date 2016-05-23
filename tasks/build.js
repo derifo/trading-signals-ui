@@ -14,7 +14,7 @@ gulp.task('copyfonts', function() {
 });
 
 gulp.task('copyimg', function() {
-    return gulp.src('./img/*')
+    return gulp.src('./img/**')
         .pipe(gulp.dest('./build/img'));
 });
 
