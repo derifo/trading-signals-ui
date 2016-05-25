@@ -8,7 +8,7 @@ gulp.task('serve', function() {
     gulp.src('./')
         .pipe(webserver({
             fallback: 'index.html',
-            host: "10.0.0.32",
+            host: "localhost",
             port: 3000
         }));
 });

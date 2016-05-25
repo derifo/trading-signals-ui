@@ -2,3 +2,4 @@ node_modules
 vendor
 .idea
 streamer/node_modules
+streamer/config.js

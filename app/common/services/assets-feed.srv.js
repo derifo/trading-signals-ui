@@ -7,9 +7,12 @@ angular.module('app.common.services')
 
         return {
             subscribe: function (asset, callback) {
+
                 socket.on('feed_' + asset, function (data, current) {
                     callback(data, current);
                 });
+
+                socket.emit('feed-all')
             }
         }
     });

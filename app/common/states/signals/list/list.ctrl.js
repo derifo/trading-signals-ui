@@ -25,21 +25,22 @@ angular.module('app.states.signals').controller('app.signals.list',
 					open_rate: row.signal.creation_rate
 				};
 
-				console.log(row);
-				assetFeed.subscribe(row.signal.asset.id, function (data, current) {
-					row.chartData = [];
-					row.rateStatus = row.currentRate > current ? 'up' : 'down';
-					row.currentRate = current;
-					angular.forEach(data, function (value, idx) {
-						console.log(idx);
-						row.chartData.push({
-							date: $filter('date')(Date.parse(idx), 'yyyy-MM-dd HH:mm:ss'),
-							high: value.high,
-							low: value.low,
-							open: value.open,
-							close: value.close
-						});
-					});
+				assetFeed.subscribe(row.signal.asset.socket_id, function (data, current) {
+			        $scope.$apply(function() {
+                        row.chartData = [];
+                        row.rateStatus = row.currentRate > current ? 'up' : 'down';
+                        row.currentRate = current;
+                        angular.forEach(data, function (value, idx) {
+                            row.chartData.push({
+                                date: $filter('date')(Date.parse(idx), 'yyyy-MM-dd HH:mm:ss'),
+                                high: value.high,
+                                low: value.low,
+                                open: value.open,
+                                close: value.close
+                            });
+
+                        });
+                    });
 				});
 			});
 

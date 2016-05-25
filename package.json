@@ -32,6 +32,7 @@
     "gulp-duration": "0.0.0",
     "gulp-webserver": "^0.9.1",
     "require-dir": "^0.3.0",
+    "through2": "^2.0.1",
     "wiredep": "^3.0.0"
   }
 }
