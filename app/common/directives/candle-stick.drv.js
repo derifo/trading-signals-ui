@@ -89,8 +89,6 @@ angular.module('app.common.directives')
                 var dataReady = false;
                 scope.$watch('csData', function() {
                     var options = scope.options || {};
-                    console.log('DATA:');
-                    console.log(scope.csData);
                     updateChart(scope.csData, options);
 
                 });

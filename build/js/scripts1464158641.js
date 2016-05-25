@@ -117,18 +117,6 @@ angular.module('app.common.filters', [ ]);
  * @description
  * # MainCtrl
  */
-angular.module('app.states.charts', []);
-/**
- * Created by roee on 2/1/2016.
- */
-'use strict';
-
-/**
- * @ngdoc function
- * @name yeomanApp.controller:MainCtrl
- * @description
- * # MainCtrl
- */
 angular.module('app.states.layout', [
     'ui.router'
 ])
@@ -153,6 +141,18 @@ angular.module('app.states.layout', [
         return '/images/' + img
     }
 }]);
+/**
+ * Created by roee on 2/1/2016.
+ */
+'use strict';
+
+/**
+ * @ngdoc function
+ * @name yeomanApp.controller:MainCtrl
+ * @description
+ * # MainCtrl
+ */
+angular.module('app.states.charts', []);
 /**
  * Created by roee on 2/1/2016.
  */
@@ -313,6 +313,64 @@ angular.module('app.core.trades', [ 'ui.router' ])
 		});
 	}]);
 
+'use strict';
+
+/**
+ * @ngdoc function
+ * @name yeomanApp.controller:AboutCtrl
+ * @description
+ * # AboutCtrl
+ * Controller of the yeomanApp
+ */
+angular.module('app.common.services')
+	.factory('merchantsSignalsAPI', ["$resource", function ($resource) {
+
+		return $resource(sConfig.api + 'api/traders/merchants/signals/:id', {}, {
+			query: { method: 'GET', isArray: true },
+			save: { method: 'POST', params: { id: "@id" } }
+		});
+	}]);
+
+'use strict';
+
+/**
+ * @ngdoc function
+ * @name yeomanApp.controller:AboutCtrl
+ * @description
+ * # AboutCtrl
+ * Controller of the yeomanApp
+ */
+angular.module('app.common.services')
+	.factory('signalsAPI', ["$resource", "$http", function ($resource, $http) {
+
+		return $resource(sConfig.api + 'api/traders/signals/:id', {}, {
+			query: { method: 'GET', isArray: true },
+			buy: { method: 'POST', url: sConfig.api + 'api/traders/buy' },
+			save: { method: 'POST', params: { id: "@id" } }
+		});
+	}]);
+
+'use strict';
+
+/**
+ * @ngdoc function
+ * @name yeomanApp.controller:AboutCtrl
+ * @description
+ * # AboutCtrl
+ * Controller of the yeomanApp
+ */
+angular.module('app.common.services')
+	.factory('tradersAPI', ["$resource", "$http", function ($resource, $http) {
+
+		return $resource(sConfig.api + 'api/traders/traders', {}, {
+			query: { method: 'GET', isArray: true },
+			getStatistics: { method: 'GET', url: sConfig.api + 'api/traders/traders/stats' },
+			save: { method: 'POST', params: { id: "@id" } },
+			login: { method: 'POST', url: sConfig.api + 'api/traders/login' },
+			logout: { method: 'POST', url: sConfig.api + 'api/traders/logout' }
+		});
+	}]);
+
 /**
  * Created by roee on 23/05/2016.
  */
@@ -404,7 +462,6 @@ angular.module('app.common.directives')
                 var dataReady = false;
                 scope.$watch('csData', function() {
                     var options = scope.options || {};
-                    console.log('DATA:' + JSON.stringify(scope.csData));
                     updateChart(scope.csData, options);
 
                 });
@@ -512,64 +569,6 @@ angular.module('app.common.directives')
     }
 );
 
-'use strict';
-
-/**
- * @ngdoc function
- * @name yeomanApp.controller:AboutCtrl
- * @description
- * # AboutCtrl
- * Controller of the yeomanApp
- */
-angular.module('app.common.services')
-	.factory('merchantsSignalsAPI', ["$resource", function ($resource) {
-
-		return $resource(sConfig.api + 'api/traders/merchants/signals/:id', {}, {
-			query: { method: 'GET', isArray: true },
-			save: { method: 'POST', params: { id: "@id" } }
-		});
-	}]);
-
-'use strict';
-
-/**
- * @ngdoc function
- * @name yeomanApp.controller:AboutCtrl
- * @description
- * # AboutCtrl
- * Controller of the yeomanApp
- */
-angular.module('app.common.services')
-	.factory('signalsAPI', ["$resource", "$http", function ($resource, $http) {
-
-		return $resource(sConfig.api + 'api/traders/signals/:id', {}, {
-			query: { method: 'GET', isArray: true },
-			buy: { method: 'POST', url: sConfig.api + 'api/traders/buy' },
-			save: { method: 'POST', params: { id: "@id" } }
-		});
-	}]);
-
-'use strict';
-
-/**
- * @ngdoc function
- * @name yeomanApp.controller:AboutCtrl
- * @description
- * # AboutCtrl
- * Controller of the yeomanApp
- */
-angular.module('app.common.services')
-	.factory('tradersAPI', ["$resource", "$http", function ($resource, $http) {
-
-		return $resource(sConfig.api + 'api/traders/traders', {}, {
-			query: { method: 'GET', isArray: true },
-			getStatistics: { method: 'GET', url: sConfig.api + 'api/traders/traders/stats' },
-			save: { method: 'POST', params: { id: "@id" } },
-			login: { method: 'POST', url: sConfig.api + 'api/traders/login' },
-			logout: { method: 'POST', url: sConfig.api + 'api/traders/logout' }
-		});
-	}]);
-
 /**
  * Created by roee on 22/05/2016.
  */
@@ -643,6 +642,39 @@ angular.module('app.common.services')
  * # AboutCtrl
  * Controller of the yeomanApp
  */
+angular.module('app.states.layout')
+	.controller('app.states.layout.headerCtrl', ["$scope", "$interval", "$state", function ($scope, $interval, $state) {
+		$scope.$state = $state;
+	}]);
+
+'use strict';
+
+/**
+ * @ngdoc function
+ * @name yeomanApp.controller:AboutCtrl
+ * @description
+ * # AboutCtrl
+ * Controller of the yeomanApp
+ */
+angular.module('app.states.layout')
+	.controller('app.states.layout.navbarCtrl', ["$scope", "tradersAPI", "$state", function ($scope, tradersAPI, $state) {
+
+		$scope.logout = function () {
+			tradersAPI.logout().$promise.then(function () {
+				$state.transitionTo('app.security.login');
+			});
+		}
+	}]);
+
+'use strict';
+
+/**
+ * @ngdoc function
+ * @name yeomanApp.controller:AboutCtrl
+ * @description
+ * # AboutCtrl
+ * Controller of the yeomanApp
+ */
 angular.module('app.states.charts').controller('app.charts.membersTrades',
 	["$scope", "tradersAPI", function ($scope, tradersAPI) {
 
@@ -703,20 +735,6 @@ angular.module('app.states.charts').controller('app.charts.tiles',
  * @ngdoc function
  * @name yeomanApp.controller:AboutCtrl
  * @description
- * # AboutCtrl
- * Controller of the yeomanApp
- */
-angular.module('app.states.layout')
-	.controller('app.states.layout.headerCtrl', ["$scope", "$interval", "$state", function ($scope, $interval, $state) {
-		$scope.$state = $state;
-	}]);
-
-'use strict';
-
-/**
- * @ngdoc function
- * @name yeomanApp.controller:AboutCtrl
- * @description
  * 
  * AboutCtrl
  * Controller of the yeomanApp
@@ -744,6 +762,7 @@ angular.module('app.states.signals').controller('app.signals.list',
                         row.rateStatus = row.currentRate > current ? 'up' : 'down';
                         row.currentRate = current;
                         angular.forEach(data, function (value, idx) {
+                            idx = idx.replace(' ', 'T');
                             row.chartData.push({
                                 date: $filter('date')(Date.parse(idx), 'yyyy-MM-dd HH:mm:ss'),
                                 high: value.high,
@@ -783,25 +802,6 @@ angular.module('app.states.signals').controller('app.signals.list',
 			signalsAPI.buy(data).$promise.then(function () {
 				ngNotify.set('Your trade has successfully placed', 'success');
 				$scope.buyOptions.buying = false;
-			});
-		}
-	}]);
-
-'use strict';
-
-/**
- * @ngdoc function
- * @name yeomanApp.controller:AboutCtrl
- * @description
- * # AboutCtrl
- * Controller of the yeomanApp
- */
-angular.module('app.states.layout')
-	.controller('app.states.layout.navbarCtrl', ["$scope", "tradersAPI", "$state", function ($scope, tradersAPI, $state) {
-
-		$scope.logout = function () {
-			tradersAPI.logout().$promise.then(function () {
-				$state.transitionTo('app.security.login');
 			});
 		}
 	}]);

@@ -31,6 +31,7 @@ angular.module('app.states.signals').controller('app.signals.list',
                         row.rateStatus = row.currentRate > current ? 'up' : 'down';
                         row.currentRate = current;
                         angular.forEach(data, function (value, idx) {
+                            idx = idx.replace(' ', 'T');
                             row.chartData.push({
                                 date: $filter('date')(Date.parse(idx), 'yyyy-MM-dd HH:mm:ss'),
                                 high: value.high,
