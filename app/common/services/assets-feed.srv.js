@@ -9,6 +9,9 @@ angular.module('app.common.services')
             subscribe: function (asset, callback) {
 
                 socket.on('feed_' + asset, function (data, current) {
+                    console.log(data);
+                    console.log(current);
+                    console.log(arguments);
                     callback(data, current);
                 });
 
