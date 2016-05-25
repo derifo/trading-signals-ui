@@ -34,7 +34,7 @@ gulp.task('minify-app', function() {
         'app/core/**/*.js'
     ])
         .pipe(ngAnnotate())
-        .pipe(uglify())
+        //.pipe(uglify())
         .pipe(rename({
             basename: "scripts",
             suffix: Math.round((new Date()).getTime() / 1000)

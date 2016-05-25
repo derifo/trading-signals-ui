@@ -9,7 +9,7 @@
  * Controller of the yeomanApp
  */
 angular.module('app.states.signals').controller('app.signals.list',
-	function ($scope, merchantsSignalsAPI, signalsAPI, $state, assetFeed, $filter, ngNotify) {
+	["$scope", "merchantsSignalsAPI", "signalsAPI", "$state", "assetFeed", "$filter", "ngNotify", function ($scope, merchantsSignalsAPI, signalsAPI, $state, assetFeed, $filter, ngNotify) {
 
 		$scope.buyOptions = {
 			amount: 50
@@ -72,4 +72,4 @@ angular.module('app.states.signals').controller('app.signals.list',
 				$scope.buyOptions.buying = false;
 			});
 		}
-	});
+	}]);
