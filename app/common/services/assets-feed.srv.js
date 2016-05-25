@@ -12,7 +12,7 @@ angular.module('app.common.services')
                     console.log(data);
                     console.log(current);
                     console.log(arguments);
-                    callback(data, current);
+                    callback(JSON.parse(data), current);
                 });
 
                 socket.emit('feed-all')

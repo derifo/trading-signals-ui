@@ -21,7 +21,7 @@ io.on('connection', function (socket) {
 
     socket.on('feed-all', function() {
         assetFeed.subscribe(function(asset, data, rate) {
-            socket.emit('feed_' + asset, data, rate);
+            socket.emit('feed_' + asset, JSON.stringify(data), rate);
         });
     });
 });
