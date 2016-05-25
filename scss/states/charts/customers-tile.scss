@@ -68,4 +68,33 @@
     line-height: 45px;
     font-weight: 300;
   }
+
+  @media(max-width: 1350px) {
+    .tile-header {
+      font-size: 15px;
+      line-height: 20px;
+
+      span {
+        display: block;
+      }
+    }
+
+    .tile-value {
+      font-size: 23px;
+      line-height: 37px;
+    }
+
+    .tile-thumb .fa {
+      width: 60px;
+      height: 60px;
+      font-size: 28px;
+      line-height: 68px;
+      margin-left: 10px;
+      margin-top: 8px;
+
+      &.fa-dollar {
+        line-height: 47px;
+      }
+    }
+  }
 }

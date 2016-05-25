@@ -12336,6 +12336,22 @@ input.uniform-input, input.uniform-input:focus {
     font-size: 42px;
     line-height: 45px;
     font-weight: 300; }
+  @media (max-width: 1350px) {
+    .tile .tile-header {
+      font-size: 15px;
+      line-height: 20px; }
+      .tile .tile-header span {
+        display: block; }
+    .tile .tile-value {
+      font-size: 23px;
+      line-height: 37px; }
+    .tile .tile-thumb .fa {
+      width: 60px;
+      height: 60px;
+      font-size: 28px;
+      line-height: 68px;
+      margin-left: 10px;
+      margin-top: 8px; } }
 
 .system-statistics .chart {
   position: relative;
