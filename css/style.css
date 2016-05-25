@@ -12352,6 +12352,7 @@ input.uniform-input, input.uniform-input:focus {
 
 .system-statistics .percent {
   display: inline-block;
+  font-size: 25px;
   line-height: 110px;
   z-index: 2; }
 
@@ -12483,7 +12484,8 @@ input.uniform-input, input.uniform-input:focus {
         height: 100%;
         padding-top: 13px; }
         .signals-list .signals-row .signals-box-container .signals-box .btn {
-          width: 50%;
+          max-width: 137px;
+          width: 100%;
           font-size: 18px; }
         .signals-list .signals-row .signals-box-container .signals-box .score-value {
           color: #47B24D; }
