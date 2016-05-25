@@ -7,12 +7,6 @@ var ioClient = require('socket.io-client'),
     through2Concurrent = require('through2-concurrent'),
     helper = require('./mysql-helper'),
     streamify = require('stream-from-array'),
-    connection = mysql.createConnection({
-        host     : 'localhost',
-        user     : 'root',
-        password : 'Rhershko1@',
-        database : 'systems_trading_signals'
-    }),
     cors = require('cors');
 
 var app = require('express')();
