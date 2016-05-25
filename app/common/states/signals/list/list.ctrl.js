@@ -26,6 +26,8 @@ angular.module('app.states.signals').controller('app.signals.list',
 				};
 
 				assetFeed.subscribe(row.signal.asset.socket_id, function (data, current) {
+                    console.log('Updated ' + row.signal.asset.socket_id);
+                    console.log(data);
 			        $scope.$apply(function() {
                         row.chartData = [];
                         row.rateStatus = row.currentRate > current ? 'up' : 'down';
