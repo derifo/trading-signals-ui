@@ -10,7 +10,7 @@ angular.module('app.common.services')
 
                 socket.on('feed_' + asset, function (data, current) {
                     data = JSON.parse(data);
-                    callback(data[0], current);
+                    callback(data, current);
                 });
 
                 socket.emit('feed-all')
