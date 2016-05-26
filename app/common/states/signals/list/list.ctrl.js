@@ -9,7 +9,7 @@
  * Controller of the yeomanApp
  */
 angular.module('app.states.signals').controller('app.signals.list',
-	function ($scope, merchantsSignalsAPI, signalsAPI, $state, assetFeed, $filter, ngNotify) {
+	function ($scope, merchantsSignalsAPI, signalsAPI, $state, assetFeed, $filter, ngNotify, $rootScope) {
 
 		$scope.buyOptions = {
 			amount: 50
@@ -68,8 +68,14 @@ angular.module('app.states.signals').controller('app.signals.list',
 				amount: $scope.buyOptions.amount
 			};
 
-			signalsAPI.buy(data).$promise.then(function () {
-				ngNotify.set('Your trade has successfully placed', 'success');
+			signalsAPI.buy(data).$promise.then(function (res) {
+				if(res.status == true) {
+					ngNotify.set('Your trade has successfully placed', 'success');
+					$rootScope.$emit('traderSignalBought');
+				}
+				else {
+					ngNotify.set('There was an issue placing your trade, please try again later or buy anther signal', 'error');
+				}
 				$scope.buyOptions.buying = false;
 			});
 		}

@@ -1,0 +1,38 @@
+<div class="open-trades-container">
+    <table st-table="rowCollection" class="table">
+        <thead>
+        <tr>
+            <th>Asset</th>
+            <th>Direction</th>
+            <th>Invested</th>
+            <th>Potential Profit</th>
+            <th>Buying Time</th>
+            <th>Expiry Time</th>
+            <th>Buying Rate</th>
+            <th>Current Rate</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="row in rowCollection">
+            <td>
+                <img src="/img/assets/{{ row.merchant_signal.signal.asset.socket_id }}.png" alt="">
+                {{ row.merchant_signal.signal.asset.title | uppercase }}
+            </td>
+            <td>
+                <span ng-show="row.merchant_signal.signal.direction">
+                    <img src="/img/call.png" alt="">
+                </span>
+                <span ng-show=" ! row.merchant_signal.signal.direction">
+                    <img src="/img/put.png" alt="">
+                </span>
+            </td>
+            <td>${{ row.amount }}</td>
+            <td>${{ 100 / row.profit * row.amount }}</td>
+            <td>{{ row.buy_date | date: 'medium' }}</td>
+            <td>{{ row.expiry_date | date: 'medium' }}</td>
+            <td>{{ row.entry_rate }}</td>
+            <td>{{ getRate(row.merchant_signal.signal.asset.socket_id) }}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

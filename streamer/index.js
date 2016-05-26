@@ -19,9 +19,22 @@ var assetFeed = new AssetFeed();
 
 io.on('connection', function (socket) {
 
+    var feeds = [];
+    socket.on('add-feed', function (newFeeds) {
+        newFeeds = JSON.parse(newFeeds);
+        feeds = feeds.concat(newFeeds);
+    });
+
     socket.on('feed-all', function() {
+        console.log('FEEDING ALL');
         assetFeed.subscribe(function(asset, data, rate) {
-            socket.emit('feed_' + asset, JSON.stringify(data), rate);
+            if (asset == 91) {
+                console.log("Feeding");
+                console.log(feeds.indexOf(parseInt(asset)));
+            }
+            if (feeds.indexOf(parseInt(asset)) !== -1) {
+                socket.emit('feed_' + asset, JSON.stringify(data), rate);
+            }
         });
     });
 });

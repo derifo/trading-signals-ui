@@ -3,8 +3,7 @@
  */
 var config = require('./config');
 
-var ioClient = require('socket.io-client'),
-    socket = ioClient.connect('http://sst-n2-c-nl.spotoption.com'),
+var socket = require('./socket').getSocket(),
     mysql = require('mysql'),
     through2Concurrent = require('through2-concurrent'),
     helper = require('./mysql-helper'),
@@ -26,7 +25,7 @@ var AssetFeed = function() {
     }, 5000);
     socket.on('connect', function () {
         connection.query('SELECT * FROM assets', function(err, dbAssets) {
-            connection.query('SELECT assets_prices.*, assets.socket_id FROM assets_prices INNER JOIN assets ON assets.id = assets_prices.asset_id LIMIT 10000', function(err, assetsPrices) {
+            connection.query('SELECT assets_prices.*, assets.socket_id FROM assets_prices INNER JOIN assets ON assets.id = assets_prices.asset_id LIMIT 500', function(err, assetsPrices) {
                 var assets = [];
                 dbAssets.forEach(function (row) {
                     self.assetsData[row.socket_id] = {};
@@ -52,6 +51,9 @@ var AssetFeed = function() {
                         var rate = newRate[asset].rate;
                         asset = asset.split('_');
                         asset = asset[3];
+                        if (asset == 91) {
+                            console.log('UPDATE:' + rate);
+                        }
                         var rounded = self.roundDate((new Date()).getTime());
 
                         if (self.assetsData[asset][rounded]) {
@@ -72,9 +74,9 @@ var AssetFeed = function() {
                                 close: rate
                             };
                         }
-                    }
 
-                    self.emitSubscribes(asset, rate);
+                        self.emitSubscribes(asset, rate);
+                    }
                 });
             });
         });

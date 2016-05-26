@@ -1,0 +1,37 @@
+.open-trades-container {
+
+  table {
+
+    .st-sort-ascent:before{
+      content: '\25B2';
+    }
+
+    .st-sort-descent:before{
+      content: '\25BC';
+    }
+
+    th {
+      height: 30px;
+    }
+
+    td {
+      height: 40px;
+    }
+
+    th, td {
+      text-align: center;
+      font-size: 16px;
+
+      img {
+        height: 100%;
+      }
+    }
+
+    thead th {
+      background: #2F79B8;
+      color: #fff;
+      border-left: 2px solid #fff;
+      text-align: center;
+    }
+  }
+}

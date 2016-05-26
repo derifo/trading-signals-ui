@@ -12351,7 +12351,9 @@ input.uniform-input, input.uniform-input:focus {
       font-size: 28px;
       line-height: 68px;
       margin-left: 10px;
-      margin-top: 8px; } }
+      margin-top: 8px; }
+      .tile .tile-thumb .fa.fa-dollar {
+        line-height: 47px; } }
 
 .system-statistics .chart {
   position: relative;
@@ -12401,6 +12403,30 @@ input.uniform-input, input.uniform-input:focus {
     margin-right: 20px; }
   .member-trade .direction {
     max-width: 50px; }
+
+.open-trades-container table .st-sort-ascent:before {
+  content: '\25B2'; }
+
+.open-trades-container table .st-sort-descent:before {
+  content: '\25BC'; }
+
+.open-trades-container table th {
+  height: 30px; }
+
+.open-trades-container table td {
+  height: 40px; }
+
+.open-trades-container table th, .open-trades-container table td {
+  text-align: center;
+  font-size: 16px; }
+  .open-trades-container table th img, .open-trades-container table td img {
+    height: 100%; }
+
+.open-trades-container table thead th {
+  background: #2F79B8;
+  color: #fff;
+  border-left: 2px solid #fff;
+  text-align: center; }
 
 .signals-list {
   text-align: center; }
