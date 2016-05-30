@@ -58,9 +58,7 @@ var AssetFeed = function() {
                         var rate = newRate[asset].rate;
                         asset = asset.split('_');
                         asset = asset[3];
-                        if (asset == 91) {
-                            console.log('UPDATE:' + rate);
-                        }
+
                         var rounded = self.roundDate((new Date()).getTime());
 
                         if (self.assetsData[asset][rounded]) {
