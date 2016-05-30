@@ -25,7 +25,10 @@ var AssetFeed = function() {
     }, 5000);
     socket.on('connect', function () {
         connection.query('SELECT * FROM assets', function(err, dbAssets) {
-            connection.query('SELECT assets_prices.*, assets.socket_id FROM assets_prices INNER JOIN assets ON assets.id = assets_prices.asset_id LIMIT 500', function(err, assetsPrices) {
+            var last24Hrs = new Date();
+            last24Hrs = last24Hrs.getTime();
+
+            connection.query('SELECT assets_prices.*, assets.socket_id FROM assets_prices INNER JOIN assets ON assets.id = assets_prices.asset_id WHERE last_tick > "' + self.roundDate(last24Hrs) + '"', function(err, assetsPrices) {
                 var assets = [];
                 dbAssets.forEach(function (row) {
                     self.assetsData[row.socket_id] = {};
