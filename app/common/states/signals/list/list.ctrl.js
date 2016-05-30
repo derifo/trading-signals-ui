@@ -57,6 +57,10 @@ angular.module('app.states.signals').controller('app.signals.list',
 
 			$('.signal-info').eq(index).removeClass('hidden').slideDown();
 
+			setTimeout(function() {
+				$('a[title="JavaScript charts"]').remove()
+			}, 50);
+			
 			$scope.openIndex = index;
 		};
 

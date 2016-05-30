@@ -10,5 +10,4 @@
 angular.module('app.core.dashboard')
 	.controller('app.core.signals.liveCtrl',
 	function ($scope, tradersAPI, $timeout) {
-
 	});
