@@ -15,6 +15,7 @@ angular.module('app.common.services')
 
             socket.emit('add-feed', [ asset ]);
             socket.on('feed_' + asset, function (data, current) {
+                console.log("Feeded !");
                 data = JSON.parse(data);
                 emitCallbacks(asset, data, current);
             });

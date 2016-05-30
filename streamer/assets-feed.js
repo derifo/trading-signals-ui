@@ -31,6 +31,8 @@ var AssetFeed = function() {
                     self.assetsData[row.socket_id] = {};
                     assets.push('feed_asset_' + row.socket_id + '_' + row.socket_id + '_DemoSite');
                     self.dbIdsBySocketId[row.socket_id] = row.id;
+
+                    self.emitSubscribes(row.socket_id, row.rate);
                 });
 
                 assetsPrices.forEach(function(row) {
@@ -42,6 +44,7 @@ var AssetFeed = function() {
                         close: row.close
                     };
                 });
+
 
                 socket.emit('add', assets);
 
