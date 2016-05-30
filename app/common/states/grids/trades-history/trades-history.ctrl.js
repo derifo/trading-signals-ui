@@ -7,16 +7,9 @@
  * # AboutCtrl
  * Controller of the yeomanApp
  */
-angular.module('app.states.grids').controller('app.grids.openTrades',
+angular.module('app.states.grids').controller('app.grids.tradesHistory',
 	function ($scope, tradesAPI, assetFeed) {
-		$scope.rowCollection = tradesAPI.query({ tradeStatus: 1 });
-
-		$scope.getters={
-			firstName: function (value) {
-				//this will sort by the length of the first name string
-				return value.firstName.length;
-			}
-		};
+		$scope.rowCollection = tradesAPI.query({ tradeStatus: [ 2 ,3 ] });
 
 		$scope.rates = {};
 		$scope.getRate = function (asset) {

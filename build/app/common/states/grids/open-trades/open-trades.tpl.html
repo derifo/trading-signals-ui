@@ -27,7 +27,7 @@
                 </span>
             </td>
             <td>${{ row.amount }}</td>
-            <td>${{ 100 / row.profit * row.amount }}</td>
+            <td>${{ 100 / row.profit * row.amount | number: 1 }}</td>
             <td>{{ row.buy_date | date: 'medium' }}</td>
             <td>{{ row.expiry_date | date: 'medium' }}</td>
             <td>{{ row.entry_rate }}</td>

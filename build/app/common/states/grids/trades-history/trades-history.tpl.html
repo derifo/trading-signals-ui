@@ -5,11 +5,12 @@
             <th>Asset</th>
             <th>Direction</th>
             <th>Invested</th>
-            <th>Potential Profit</th>
+            <th>Profit</th>
             <th>Buying Time</th>
             <th>Expiry Time</th>
             <th>Buying Rate</th>
             <th>Current Rate</th>
+            <th>Status</th>
         </tr>
         </thead>
         <tbody>
@@ -32,6 +33,7 @@
             <td>{{ row.expiry_date | date: 'medium' }}</td>
             <td>{{ row.entry_rate }}</td>
             <td>{{ getRate(row.merchant_signal.signal.asset.socket_id) }}</td>
+            <td>{{ row.trade_status.title }}</td>
         </tr>
         </tbody>
     </table>

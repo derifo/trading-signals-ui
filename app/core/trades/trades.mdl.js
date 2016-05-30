@@ -15,11 +15,15 @@ angular.module('app.core.trades', [ 'ui.router' ])
 		});
 
 		$stateProvider.state('app.trades.open', {
-			url: '',
+			url: '/open',
 			views: {
 				'content@': {
 					templateUrl: '/app/core/trades/open/open.tpl.html',
 					controller: 'app.core.trades.openCtrl'
+				},
+				'grid@app.trades.open': {
+					templateUrl: '/app/common/states/grids/open-trades/open-trades.tpl.html',
+					controller: 'app.grids.openTrades'
 				}
 			}
 		});
@@ -30,6 +34,10 @@ angular.module('app.core.trades', [ 'ui.router' ])
 				'content@': {
 					templateUrl: '/app/core/trades/history/history.tpl.html',
 					controller: 'app.core.trades.historyCtrl'
+				},
+				'grid@app.trades.history': {
+					templateUrl: '/app/common/states/grids/trades-history/trades-history.tpl.html',
+					controller: 'app.grids.tradesHistory'
 				}
 			}
 		});

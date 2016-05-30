@@ -15,11 +15,18 @@ angular.module('app.core.signals', [ 'ui.router' ])
 		});
 
 		$stateProvider.state('app.signals.live', {
-			url: '',
+			url: '/live',
+			data: {
+				signalsList: { limit: 10 }
+			},
 			views: {
 				'content@': {
 					templateUrl: '/app/core/signals/live/live.tpl.html',
 					controller: 'app.core.signals.liveCtrl'
+				},
+				'signalsList@app.signals.live': {
+					templateUrl: '/app/common/states/signals/list/list.tpl.html',
+					controller: 'app.signals.list'
 				}
 			}
 		});
