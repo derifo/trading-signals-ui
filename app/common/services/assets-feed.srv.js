@@ -2,7 +2,7 @@
  * Created by roee on 22/05/2016.
  */
 angular.module('app.common.services')
-    .service('assetFeed', function ($timeout) {
+    .service('assetFeedService', function ($timeout) {
         var socket = io('http://52.48.242.152:8080');
 
         socket.emit('feed-all');
@@ -15,7 +15,7 @@ angular.module('app.common.services')
 
             socket.emit('add-feed', [ asset ]);
             socket.on('feed_' + asset, function (data, current) {
-                console.log("Feeded !");
+                console.log(asset);
                 data = JSON.parse(data);
                 emitCallbacks(asset, data, current);
             });

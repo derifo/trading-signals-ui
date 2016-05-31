@@ -23,22 +23,22 @@ angular.module('app.core.dashboard', [ 'ui.router' ])
 					templateUrl: '/app/common/states/charts/tiles/tiles.tpl.html',
 					controller: 'app.charts.tiles'
 				},
-				'statistics@app.dashboard': {
-					templateUrl: '/app/common/states/charts/statistics/statistics.tpl.html',
-					controller: 'app.charts.statistics'
-				},
+				// 'statistics@app.dashboard': {
+				// 	templateUrl: '/app/common/states/charts/statistics/statistics.tpl.html',
+				// 	controller: 'app.charts.statistics'
+				// },
 				'signalsList@app.dashboard': {
 					templateUrl: '/app/common/states/signals/list/list.tpl.html',
 					controller: 'app.signals.list'
-				},
-				'membersTrades@app.dashboard': {
-					templateUrl: '/app/common/states/charts/members-trades/members-trades.tpl.html',
-					controller: 'app.charts.membersTrades'
-				},
-				'openTrades@app.dashboard': {
-					templateUrl: '/app/common/states/grids/open-trades/open-trades.tpl.html',
-					controller: 'app.grids.openTrades'
 				}
+				// 'membersTrades@app.dashboard': {
+				// 	templateUrl: '/app/common/states/charts/members-trades/members-trades.tpl.html',
+				// 	controller: 'app.charts.membersTrades'
+				// },
+				// 'openTrades@app.dashboard': {
+				// 	templateUrl: '/app/common/states/grids/open-trades/open-trades.tpl.html',
+				// 	controller: 'app.grids.openTrades'
+				// }
 			}
 		});
 	});

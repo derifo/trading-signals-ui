@@ -9,7 +9,7 @@
  * Controller of the yeomanApp
  */
 angular.module('app.states.signals').controller('app.signals.list',
-	function ($scope, merchantsSignalsAPI, signalsAPI, $state, assetFeed, $filter, ngNotify, $rootScope) {
+	function ($scope, merchantsSignalsAPI, signalsAPI, $state, assetFeedService, $filter, $rootScope) {
 
 		$scope.buyOptions = {
 			amount: 50
@@ -25,7 +25,7 @@ angular.module('app.states.signals').controller('app.signals.list',
 					open_rate: row.signal.creation_rate
 				};
 
-				assetFeed.subscribe(row.signal.asset.socket_id, function (data, current) {
+				assetFeedService.subscribe(row.signal.asset.socket_id, function (data, current) {
 			        $scope.$apply(function() {
                         row.chartData = [];
                         row.rateStatus = row.currentRate > current ? 'up' : 'down';
@@ -60,7 +60,7 @@ angular.module('app.states.signals').controller('app.signals.list',
 			setTimeout(function() {
 				$('a[title="JavaScript charts"]').remove()
 			}, 50);
-			
+
 			$scope.openIndex = index;
 		};
 
@@ -74,11 +74,9 @@ angular.module('app.states.signals').controller('app.signals.list',
 
 			signalsAPI.buy(data).$promise.then(function (res) {
 				if(res.status == true) {
-					ngNotify.set('Your trade has successfully placed', 'success');
 					$rootScope.$emit('traderSignalBought');
 				}
 				else {
-					ngNotify.set('There was an issue placing your trade, please try again later or buy anther signal', 'error');
 				}
 				$scope.buyOptions.buying = false;
 			});

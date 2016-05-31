@@ -17,13 +17,8 @@ angular.module('app', [
 		'smart-table',
 		'ui.router',
 		'smart-table',
-		'toastr',
-		'daterangepicker',
 		'countUpModule',
-		'easypiechart',
-		'ngNotify',
 		'angular-loading-bar',
-		'ui.bootstrap-slider',
 		'app.common.services',
 		'app.common.directives',
 		'app.states.layout',
@@ -61,12 +56,7 @@ angular.module('app', [
 		// Redirect to default page
 		$urlRouterProvider.otherwise('/');
 	})
-	.run(function ($rootScope, $http, $state, ngNotify) {
-		ngNotify.config({
-			position: 'top',
-			duration: 4000,
-			html: true
-		});
+	.run(function ($rootScope, $http, $state, themeService) {
 
 		$http.defaults.transformResponse.unshift(function (data, headers, code) {
 			if (code == 401 && $state.current.name != 'app.security.login') {
@@ -91,4 +81,7 @@ angular.module('app', [
 			// Append the new transformation to the defaults
 			return defaults.concat($http.defaults.transformResponse);
 		};
+
+		// theme dynamic JS
+		themeService.initializeTheme();
 	});

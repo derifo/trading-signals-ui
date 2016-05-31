@@ -1,96 +1,57 @@
-<div class="signals-list">
-    <div class="signals-row signals-row-{{ $index }}" ng-repeat="signal in signals track by $index">
-        <div class="signals-box-container">
-            <div class="signals-box asset-box">
-                <div class="row">
-                    <div class="col-xs-4 asset-logo">
-                        <img src="/img/assets/{{ signal.signal.asset.socket_id }}.png" alt="">
-                    </div>
-                    <div class="col-xs-8 asset-title">
-                        <span>{{ signal.signal.asset.title }}</span>
-                    </div>
+<div class="row">
+    <div class="col-xl-6">
+        <div class="chart-statistic-box">
+            <div class="chart-txt">
+                <div class="chart-txt-top">
+                    <p><span class="unit">$</span><span class="number">1540</span></p>
+                    <p class="caption">Week income</p>
                 </div>
+                <table class="tbl-data">
+                    <tr>
+                        <td class="price color-purple">120$</td>
+                        <td>Orders</td>
+                    </tr>
+                    <tr>
+                        <td class="price color-yellow">15$</td>
+                        <td>Investments</td>
+                    </tr>
+                    <tr>
+                        <td class="price color-lime">55$</td>
+                        <td>Others</td>
+                    </tr>
+                </table>
             </div>
-        </div>
-        <div class="signals-box-container">
-            <div class="signals-box expires-box">
-                <div class="expires-text">Time Remaining</div>
-                <div class="expires-value" countdown end-time="{{ signal.expires | date : 'medium'}}"></div>
-            </div>
-        </div>
-        <div class="signals-box-container">
-            <div class="signals-box score-box">
-                <div class="score-text">Dynamic Scoring</div>
-                <div class="score-value" score="{{ signal.signal.score }}"></div>
-            </div>
-        </div>
-        <div class="signals-box-container last-box">
-            <div class="signals-box">
-                <button class="btn btn-primary" ng-click="infoClicked($index)">Buying Order
-                <span class="fa fa-angle-double-right"></span>
-                </button>
-            </div>
-        </div>
-        <div class="clearfix"></div>
-        <div class="signal-info" ng-class="{ hidden: $index != 0 }">
-            <candle-stick cs-data="signal.chartData" options="signal.options" />
-            <div class="clearfix"></div>
-            <div class="asset-table">
-                <div class="info-row col-sm-3">
-                    <div class="info-header">Asset</div>
-                    <div class="info-value info-value-asset">
-                        <div class="asset-thumb">
-                            <img src="/img/assets/{{ signal.signal.asset.socket_id }}.png" alt="">
-                        </div>
-                        <div class="asset-title">
-                            <span>{{ signal.signal.asset.title }}</span>
-                        </div>
+            <div class="chart-container">
+                <div class="chart-container-in">
+                    <div id="chart_div"></div>
+                    <header class="chart-container-title">Income</header>
+                    <div class="chart-container-x">
+                        <div class="item"></div>
+                        <div class="item">tue</div>
+                        <div class="item">wed</div>
+                        <div class="item">thu</div>
+                        <div class="item">fri</div>
+                        <div class="item">sat</div>
+                        <div class="item">sun</div>
+                        <div class="item">mon</div>
+                        <div class="item"></div>
                     </div>
-                </div>
-                <div class="info-row col-sm-3">
-                    <div class="info-header">Current Rate</div>
-                    <div class="info-value info-value-rate {{ signal.rateStatus }}">{{ signal.currentRate }}</div>
-                </div>
-                <div class="info-row col-sm-3">
-                    <div class="info-header">Direction</div>
-                    <div class="info-value info-value-direction">
-                        <div class="direction-container" ng-show="signal.signal.direction == 1">
-                            <span class="direction-text">CALL</span>
-                            <img src="/img/call.png" class="direction-caret" alt="">
-                        </div>
-                        <div class="direction-container" ng-show="signal.signal.direction == 0">
-                            <span class="direction-text">PUT</span>
-                            <img src="/img/put.png" class="direction-caret" alt="">
-                        </div>
-                    </div>
-                </div>
-                <div class="info-row col-sm-3">
-                    <div class="info-header">Expiry Time</div>
-                    <div class="info-value info-value-expires">{{ signal.expires | date : 'medium'}}</div>
-                </div>
-            </div>
-            <div class="asset-buy text-center">
-                <div class="col-xs-12">
-                    <div class="col-md-10">
-                        <div class="input-group pull-right">
-                            <div class="input-group-addon">$</div>
-                            <input type="text" class="form-control" ng-model="buyOptions.amount" />
-                        </div>
-                        <h3 class="pull-right">Trade Amount:</h3>
-                        <slider ng-model="buyOptions.amount" min="0" step="25" max="500" value="50"></slider>
-                    </div>
-                    <div class="col-md-2 text-center">
-                        <button type="button" class="btn btn-success btn-lg" disabled="disabled" ng-show="buyOptions.amount == 0 || buyOptions.buying ">Apply</button>
-                        <button type="button" class="btn btn-success btn-lg" ng-click="buySignal(signal)" ng-show="buyOptions.amount != 0 && ! buyOptions.buying">Apply</button>
+                    <div class="chart-container-y">
+                        <div class="item">300</div>
+                        <div class="item"></div>
+                        <div class="item">250</div>
+                        <div class="item"></div>
+                        <div class="item">200</div>
+                        <div class="item"></div>
+                        <div class="item">150</div>
+                        <div class="item"></div>
+                        <div class="item">100</div>
+                        <div class="item"></div>
+                        <div class="item">50</div>
+                        <div class="item"></div>
                     </div>
                 </div>
             </div>
-            <div class="clearfix"></div>
-        </div>
-        <div class="clearfix"></div>
-        <div class="signals-dropdown" ng-click="infoClicked($index)">
-            <span class="fa fa-angle-double-down" ng-show="openIndex != $index"></span>
-            <span class="fa fa-angle-double-up" ng-show="openIndex == $index"></span>
-        </div>
-    </div>
+        </div><!--.chart-statistic-box-->
+    </div><!--.col-->
 </div>

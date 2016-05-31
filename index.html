@@ -14,46 +14,42 @@
         }
     </script>
 </head>
-<body>
-    <div class="top-navbar" ui-view="navbar"></div>
-    <div class="header" ui-view="header"></div>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="content" ui-view="content"></div>
-            </div>
-        </div>
+<body class="with-side-menu theme-picton-blue">
+    <header class="site-header">
+        <div ui-view="navbar" class="container-fluid"></div>
+    </header><!--.site-header-->
+    <div class="mobile-menu-left-overlay"></div>
+    <nav class="side-menu" ui-view="sidebar" scroll-pane></nav>
+    <div class="page-content">
+        <div class="container-fluid">
+            <div ui-view="content"></div>
+        </div><!--.container-fluid-->
     </div>
     <!-- bower:js -->
     <script src="/vendor/jquery/dist/jquery.js"></script>
     <script src="/vendor/angular/angular.js"></script>
-    <script src="/vendor/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
     <script src="/vendor/angular-animate/angular-animate.js"></script>
     <script src="/vendor/angular-messages/angular-messages.js"></script>
     <script src="/vendor/angular-resource/angular-resource.js"></script>
     <script src="/vendor/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="/vendor/angular-touch/angular-touch.js"></script>
     <script src="/vendor/angular-route/angular-route.js"></script>
-    <script src="/vendor/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-    <script src="/vendor/angular-toastr/dist/angular-toastr.tpls.js"></script>
     <script src="/vendor/angular-loading-bar/build/loading-bar.js"></script>
     <script src="/vendor/jquery.uniform/lib/jquery.uniform.js"></script>
     <script src="/vendor/angular-smart-table/dist/smart-table.js"></script>
-    <script src="/vendor/jqvmap/dist/jquery.vmap.min.js"></script>
-    <script src="/vendor/jqvmap/dist/maps/jquery.vmap.world.js"></script>
-    <script src="/vendor/moment/moment.js"></script>
-    <script src="/vendor/bootstrap-daterangepicker/daterangepicker.js"></script>
-    <script src="/vendor/angular-daterangepicker/js/angular-daterangepicker.js"></script>
     <script src="/vendor/countUp.js/countUp.js"></script>
     <script src="/vendor/countUp.js/dist/angular-countUp.js"></script>
     <script src="/vendor/socket.io-client/socket.io.js"></script>
-    <script src="/vendor/seiyria-bootstrap-slider/dist/bootstrap-slider.js"></script>
-    <script src="/vendor/angular-bootstrap-slider/slider.js"></script>
-    <script src="/vendor/jquery.easy-pie-chart/dist/jquery.easypiechart.js"></script>
-    <script src="/vendor/jquery.easy-pie-chart/dist/angular.easypiechart.js"></script>
     <script src="/vendor/amcharts3/amcharts/amcharts.js"></script>
     <script src="/vendor/amcharts3/amcharts/serial.js"></script>
-    <script src="/vendor/ng-notify/src/scripts/ng-notify.js"></script>
+    <script src="/vendor/webcomponentsjs/webcomponents.js"></script>
+    <script src="/vendor/promise-polyfill/Promise.js"></script>
+    <script src="/vendor/jScrollPane/script/jquery.mousewheel.js"></script>
+    <script src="/vendor/jScrollPane/script/mwheelIntent.js"></script>
+    <script src="/vendor/jScrollPane/script/jquery.jscrollpane.js"></script>
+    <script src="/vendor/jScrollPane/script/jquery.jscrollpane.min.js"></script>
+    <script src="/vendor/matchHeight/dist/jquery.matchHeight.js"></script>
+    <script src="/vendor/bootstrap/dist/js/bootstrap.js"></script>
     <!-- endbower -->
 
     <!-- inject:js -->
@@ -62,8 +58,8 @@
     <script src="/app/common/filters/flt.mdl.js"></script>
     <script src="/app/common/services/srv.mdl.js"></script>
     <script src="/app/common/states/charts/charts.mdl.js"></script>
-    <script src="/app/common/states/layout/layout.mdl.js"></script>
     <script src="/app/common/states/grids/grids.mdl.js"></script>
+    <script src="/app/common/states/layout/layout.mdl.js"></script>
     <script src="/app/common/states/signals/signals.mdl.js"></script>
     <script src="/app/core/dashboard/dashboard.mdl.js"></script>
     <script src="/app/core/security/security.mdl.js"></script>
@@ -77,16 +73,19 @@
     <script src="/app/common/directives/count-down.drv.js"></script>
     <script src="/app/common/directives/count-up.drv.js"></script>
     <script src="/app/common/directives/score.drv.js"></script>
+    <script src="/app/common/directives/scrollpane.drv.js"></script>
     <script src="/app/common/services/assets-feed.srv.js"></script>
+    <script src="/app/common/services/theme.srv.js"></script>
     <script src="/app/common/directives/validation/campre-to.drv.js"></script>
     <script src="/app/common/services/config/user-token.srv.js"></script>
     <script src="/app/common/states/charts/members-trades/members-trades.ctrl.js"></script>
+    <script src="/app/common/states/charts/signal/signal.ctrl.js"></script>
     <script src="/app/common/states/charts/statistics/statistics.ctrl.js"></script>
     <script src="/app/common/states/charts/tiles/tiles.ctrl.js"></script>
-    <script src="/app/common/states/layout/header/header.ctrl.js"></script>
-    <script src="/app/common/states/layout/navbar/navbar.ctrl.js"></script>
     <script src="/app/common/states/grids/open-trades/open-trades.ctrl.js"></script>
     <script src="/app/common/states/grids/trades-history/trades-history.ctrl.js"></script>
+    <script src="/app/common/states/layout/navbar/navbar.ctrl.js"></script>
+    <script src="/app/common/states/layout/sidebar/sidebar.ctrl.js"></script>
     <script src="/app/common/states/signals/list/list.ctrl.js"></script>
     <script src="/app/core/dashboard/dashboard.ctrl.js"></script>
     <script src="/app/core/security/login/login.ctrl.js"></script>
@@ -96,6 +95,7 @@
     <script src="/app/core/trades/open/open.ctrl.js"></script>
     <!-- endinject -->
 
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <!-- inject:build:js -->
     <!-- endinject -->
 </body>
