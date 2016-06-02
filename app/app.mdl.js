@@ -26,6 +26,7 @@ angular.module('app', [
 		'app.states.signals',
 		'app.states.grids',
 		'app.core.dashboard',
+		'app.core.support',
 		'app.core.signals',
 		'app.core.trades',
 		'app.core.security'

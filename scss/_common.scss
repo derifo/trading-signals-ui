@@ -7,9 +7,18 @@
   }
 }
 
-.statistic-box .info {
-  position: absolute;
-  bottom: 5px;
-  right: 8px;
-  font-size: 13px;
+.statistic-box.blue {
+  background-color: #ac6bec;
+  background-image: url(../img/statistic-box-blue.jpg);
+}
+
+.statistic-box.dark-blue {
+  background-color: #ac6bec;
+  background-image: url(../img/statistic-box-dark-blue.jpg);
+}
+
+.btn.btn-green {
+  @extend .btn-success;
+  background-color: #A2CF37;
+  border-color: #91B931;
 }

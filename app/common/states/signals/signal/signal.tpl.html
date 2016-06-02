@@ -1,24 +1,60 @@
 <div ng-if="signal">
-    <div class="chart-statistic-box">
+    <div class="chart-statistic-box signal-chart-box">
         <div class="chart-txt">
             <div class="chart-txt-top">
-                <p><span class="unit">$</span><span class="number">1540</span></p>
-                <p class="caption">Week income</p>
+                <span>
+                    <img src="/img/assets/{{ signal.signal.asset.socket_id }}.png" alt="">
+                </span>
+                <span class="caption">
+                    {{ signal.signal.asset.title }}
+                </span>
             </div>
-            <table class="tbl-data">
-                <tr>
-                    <td class="price color-purple">120$</td>
-                    <td>Orders</td>
-                </tr>
-                <tr>
-                    <td class="price color-yellow">15$</td>
-                    <td>Investments</td>
-                </tr>
-                <tr>
-                    <td class="price color-lime">55$</td>
-                    <td>Others</td>
-                </tr>
-            </table>
+            <div class="chart-info current-rate">
+                <div class="chart-info-header">
+                    Current Rate
+                </div>
+                <div class="chart-info-value">
+                    {{ signal.currentRate }}
+                </div>
+            </div>
+            <div class="chart-info direction">
+                <div class="chart-info-header">
+                    Direction
+                </div>
+                <div class="chart-info-value">
+                    <div class="direction-txt">Call</div>
+                    <div class="direction-avatar">
+                        <img src="/img/call.png" alt="">
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <div class="chart-info signal-rate-range">
+                <div class="chart-info-header">
+                    Signal Rate Range
+                </div>
+                <div class="chart-info-value">
+                    <div class="signal-range">
+                        <div class="signal-range-txt">HIGH</div>
+                        <div class="signal-range-value">4.121</div>
+                    </div>
+                    <div class="signal-range">
+                        <div class="signal-range-txt">LOW</div>
+                        <div class="signal-range-value">4.02</div>
+                    </div>
+                </div>
+            </div>
+            <div class="chart-info expires">
+                <div class="chart-info-header">
+                    Option Expiry Time
+                </div>
+                <div class="chart-info-value">
+                    May 30, 2016 03:00:00 PM
+                </div>
+            </div>
+            <button class="btn btn-green signal-order-btn">
+                Buying Order <span class="fa fa-angle-double-right"></span>
+            </button>
         </div>
         <div class="chart-container">
             <div class="chart-container-in">

@@ -38,7 +38,6 @@ var AssetFeed = function() {
                     self.dbIdsBySocketId[row.socket_id] = row.id;
 
                     self.emitSubscribes(row.socket_id, row.rate);
-
                     self.activeRates[row._socket_id] = row.rate;
                 });
 
@@ -83,7 +82,7 @@ var AssetFeed = function() {
                             };
                         }
 
-                        self.activeRates[asset] = newRate;
+                        self.activeRates[asset] = rate;
                         self.emitSubscribes(asset, rate);
                     }
                 });

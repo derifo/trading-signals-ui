@@ -6,7 +6,7 @@ var watch = require('gulp-watch');
 var batch = require('gulp-batch');
 
 gulp.task('watch', function () {
-    watch([ 'scss/**/*.scss', 'app/common/directives/**/*.scss' ], batch(function (events, done) {
+    watch([ 'scss/**/*.scss', 'app/**/*.scss' ], batch(function (events, done) {
         gulp.start('sass', done);
     }));
 

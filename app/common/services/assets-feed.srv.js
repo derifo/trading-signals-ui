@@ -22,6 +22,7 @@ angular.module('app.common.services')
             if (callbacks[asset] && callbacks[asset].length) {
                 callbacks[asset].forEach(function(callback) {
                     callback(asset, data, current);
+                    console.log(asset, data, current);
                 });
             }
         };

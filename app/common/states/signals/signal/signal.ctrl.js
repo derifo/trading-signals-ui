@@ -52,6 +52,7 @@ angular.module('app.states.signals').controller('app.signals.signal',
 					}
 					else {
 					}
+
 					$scope.buyOptions.buying = false;
 				});
 			}

@@ -36,7 +36,8 @@
     "bower": "*",
     "jScrollPane": "^2.0.23",
     "matchHeight": "matchheight#^0.7.0",
-    "bootstrap": "^3.3.6"
+    "bootstrap": "^3.3.6",
+    "peity": "^3.2.0"
   },
   "overrides": {
     "amcharts3": {

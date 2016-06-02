@@ -11,6 +11,10 @@
 // Common
 @import "common";
 
+// States
+@import "../app/common/states/signals/list/list";
+@import "../app/common/states/signals/signal/signal";
+
 a {
   cursor: pointer;
 }

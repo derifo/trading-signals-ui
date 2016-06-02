@@ -23,7 +23,7 @@ angular.module('app.common.directives')
                     csData = csData.slice(0, 24);
 
                     var options = {
-                        height: 314,
+                        height: 384,
                         width: $('.chart-container-in').width(),
                         legend: 'none',
                         areaOpacity: 0.18,

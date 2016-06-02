@@ -1,20 +1,17 @@
 <div class="row">
-    <div class="col-md-6 col-sm-12">
+    <div class="col-lg-7 col-md-12">
         <div ui-view="signalInfo"></div>
     </div>
-    <div class="col-md-6 col-sm-12">
+    <div class="col-lg-5 col-md-12">
         <div class="row">
             <div ng-repeat="signal in signals" class="col-md-4 col-sm-6">
-                <article class="statistic-box green">
+                <article class="signal-list-box statistic-box" ng-class="{ 'dark-blue': selected != signal, 'blue': selected == signal }">
                     <div>
                         <div class="number">
                             <img src="/img/assets/{{ signal.signal.asset.socket_id }}.png" alt="">
                         </div>
-                        <div class="caption">
-                            <div>
-                                {{ signal.signal.asset.title }}
-                            </div>
-                        </div>
+                        <div countdown end-time="{{ signal.expires | date : 'medium'}}" class="signal-countdown"></div>
+                        <div class="signal-score" score="{{ signal.signal.score }}"></div>
                         <div class="info" style="cursor: pointer" ng-click="signalClicked(signal)">More Info <span class="fa fa-angle-double-right"></span></div>
                     </div>
                 </article>
