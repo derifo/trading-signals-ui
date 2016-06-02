@@ -18,6 +18,7 @@ var AssetFeed = function() {
     this.assetsData = {};
     this.callbacks = [];
     this.dbIdsBySocketId = {};
+    this.activeRates = {};
 
     // Update DB Assets
     setInterval(function() {
@@ -37,6 +38,8 @@ var AssetFeed = function() {
                     self.dbIdsBySocketId[row.socket_id] = row.id;
 
                     self.emitSubscribes(row.socket_id, row.rate);
+
+                    self.activeRates[row._socket_id] = row.rate;
                 });
 
                 assetsPrices.forEach(function(row) {
@@ -80,6 +83,7 @@ var AssetFeed = function() {
                             };
                         }
 
+                        self.activeRates[asset] = newRate;
                         self.emitSubscribes(asset, rate);
                     }
                 });
@@ -136,5 +140,8 @@ AssetFeed.prototype.updateDB = function() {
     });
 };
 
+AssetFeed.prototype.getAssetData = function (asset) {
+    return [ this.assetsData[asset], this.activeRates[asset] ];
+};
 
 module.exports = AssetFeed;

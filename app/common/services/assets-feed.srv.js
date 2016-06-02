@@ -7,21 +7,11 @@ angular.module('app.common.services')
 
         socket.emit('feed-all');
 
-        var feeds = {};
         var callbacks = {};
-        var feedAsset = function(asset) {
-            // Validate only one feed
-            if (feeds[asset]) return;
-
-            socket.emit('add-feed', [ asset ]);
-            socket.on('feed_' + asset, function (data, current) {
-                console.log(asset);
-                data = JSON.parse(data);
-                emitCallbacks(asset, data, current);
-            });
-
-            feeds[asset] = true;
-        };
+        socket.on('feed', function (asset, data, current) {
+            data = JSON.parse(data);
+            emitCallbacks(asset, data, current);
+        });
 
         var addCallback = function (asset, callback) {
             callbacks[asset] = callbacks[asset] || [];
@@ -29,17 +19,34 @@ angular.module('app.common.services')
         };
 
         var emitCallbacks = function (asset, data, current) {
-            if (callbacks[asset].length) {
+            if (callbacks[asset] && callbacks[asset].length) {
                 callbacks[asset].forEach(function(callback) {
-                    callback(data, current);
+                    callback(asset, data, current);
                 });
             }
         };
 
         return {
-            subscribe: function (asset, callback) {
-                feedAsset(asset);
-                addCallback(asset, callback);
+            subscribe: function (callback) {
+                var currentAsset;
+
+                return {
+                    setAsset: function (newAsset) {
+
+                        if (currentAsset) {
+                            for (var idx in callbacks[currentAsset]) {
+                                var oldCallback = callbacks[currentAsset][idx];
+                                if (oldCallback == callback) {
+                                    delete callbacks[currentAsset][idx];
+                                }
+                            }
+                        }
+
+                        addCallback(newAsset, callback);
+                        socket.emit('requestFeed', newAsset);
+                        currentAsset = newAsset;
+                    }
+                }
             }
         }
     });

@@ -1,0 +1,29 @@
+<div ng-if="signal">
+    <div class="chart-statistic-box">
+        <div class="chart-txt">
+            <div class="chart-txt-top">
+                <p><span class="unit">$</span><span class="number">1540</span></p>
+                <p class="caption">Week income</p>
+            </div>
+            <table class="tbl-data">
+                <tr>
+                    <td class="price color-purple">120$</td>
+                    <td>Orders</td>
+                </tr>
+                <tr>
+                    <td class="price color-yellow">15$</td>
+                    <td>Investments</td>
+                </tr>
+                <tr>
+                    <td class="price color-lime">55$</td>
+                    <td>Others</td>
+                </tr>
+            </table>
+        </div>
+        <div class="chart-container">
+            <div class="chart-container-in">
+                <candle-stick id="chart_div" cs-data="signal.chartData"></candle-stick>
+            </div>
+        </div>
+    </div><!--.chart-statistic-box-->
+</div>

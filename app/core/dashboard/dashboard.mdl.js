@@ -12,7 +12,7 @@ angular.module('app.core.dashboard', [ 'ui.router' ])
 		$stateProvider.state('app.dashboard', {
 			url: '',
 			data: {
-				signalsList: { limit: 4 }
+				signalsList: { limit: 6 }
 			},
 			views: {
 				'content@': {
@@ -30,11 +30,11 @@ angular.module('app.core.dashboard', [ 'ui.router' ])
 				'signalsList@app.dashboard': {
 					templateUrl: '/app/common/states/signals/list/list.tpl.html',
 					controller: 'app.signals.list'
+				},
+				'signalInfo@app.dashboard': {
+					templateUrl: '/app/common/states/signals/signal/signal.tpl.html',
+					controller: 'app.signals.signal'
 				}
-				// 'membersTrades@app.dashboard': {
-				// 	templateUrl: '/app/common/states/charts/members-trades/members-trades.tpl.html',
-				// 	controller: 'app.charts.membersTrades'
-				// },
 				// 'openTrades@app.dashboard': {
 				// 	templateUrl: '/app/common/states/grids/open-trades/open-trades.tpl.html',
 				// 	controller: 'app.grids.openTrades'

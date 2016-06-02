@@ -6600,8 +6600,8 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
   background-color: #0074d9; }
 
 .c-input > input:focus ~ .c-indicator {
-  -webkit-box-shadow: 0 0 0 .075rem #fff,0 0 0 .2rem #0074d9;
-  box-shadow: 0 0 0 .075rem #fff,0 0 0 .2rem #0074d9; }
+  -webkit-box-shadow: 0 0 0 .075rem #fff, 0 0 0 .2rem #0074d9;
+  box-shadow: 0 0 0 .075rem #fff, 0 0 0 .2rem #0074d9; }
 
 .c-input > input:active ~ .c-indicator {
   color: #fff;
@@ -6668,11 +6668,11 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
   max-width: 100%;
   -webkit-appearance: none;
   padding: .375rem 1.75rem .375rem .75rem;
-  padding-right: .75rem\9;
+  padding-right: .75rem \9;
   color: #55595c;
   vertical-align: middle;
   background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAUCAMAAACzvE1FAAAADFBMVEUzMzMzMzMzMzMzMzMKAG/3AAAAA3RSTlMAf4C/aSLHAAAAPElEQVR42q3NMQ4AIAgEQTn//2cLdRKppSGzBYwzVXvznNWs8C58CiussPJj8h6NwgorrKRdTvuV9v16Afn0AYFOB7aYAAAAAElFTkSuQmCC) right 0.75rem center no-repeat #fff;
-  background-image: none\9;
+  background-image: none \9;
   -o-background-size: 8px 10px;
   background-size: 8px 10px;
   border: 1px solid #ccc;
@@ -7802,11 +7802,11 @@ button.close {
 
 .modal.fade .modal-dialog {
   -webkit-transition: -webkit-transform .3s ease-out;
-  -o-transition: transform .3s ease-out,-o-transform .3s ease-out;
-  -moz-transition: transform .3s ease-out,-moz-transform .3s ease-out;
+  -o-transition: transform .3s ease-out, -o-transform .3s ease-out;
+  -moz-transition: transform .3s ease-out, -moz-transform .3s ease-out;
   transition: transform .3s ease-out;
-  transition: transform .3s ease-out,-webkit-transform .3s ease-out,-moz-transform .3s ease-out,-o-transform .3s ease-out;
-  transition: transform .3s ease-out,-webkit-transform .3s ease-out,-o-transform .3s ease-out;
+  transition: transform .3s ease-out, -webkit-transform .3s ease-out, -moz-transform .3s ease-out, -o-transform .3s ease-out;
+  transition: transform .3s ease-out, -webkit-transform .3s ease-out, -o-transform .3s ease-out;
   -webkit-transform: translate(0, -25%);
   -ms-transform: translate(0, -25%);
   -o-transform: translate(0, -25%);
@@ -7872,7 +7872,7 @@ button.close {
   border-top: 1px solid #e5e5e5; }
 
 .popover, .tooltip {
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-style: normal;
   text-align: left;
   text-shadow: none;
@@ -8111,11 +8111,11 @@ button.close {
 @media all and (transform-3d), (-webkit-transform-3d) {
   .carousel-inner > .carousel-item {
     -webkit-transition: -webkit-transform .6s ease-in-out;
-    -o-transition: transform .6s ease-in-out,-o-transform .6s ease-in-out;
-    -moz-transition: transform .6s ease-in-out,-moz-transform .6s ease-in-out;
+    -o-transition: transform .6s ease-in-out, -o-transform .6s ease-in-out;
+    -moz-transition: transform .6s ease-in-out, -moz-transform .6s ease-in-out;
     transition: transform .6s ease-in-out;
-    transition: transform .6s ease-in-out,-webkit-transform .6s ease-in-out,-moz-transform .6s ease-in-out,-o-transform .6s ease-in-out;
-    transition: transform .6s ease-in-out,-webkit-transform .6s ease-in-out,-o-transform .6s ease-in-out;
+    transition: transform .6s ease-in-out, -webkit-transform .6s ease-in-out, -moz-transform .6s ease-in-out, -o-transform .6s ease-in-out;
+    transition: transform .6s ease-in-out, -webkit-transform .6s ease-in-out, -o-transform .6s ease-in-out;
     -webkit-backface-visibility: hidden;
     -moz-backface-visibility: hidden;
     backface-visibility: hidden;
@@ -8666,7 +8666,7 @@ a.bg-danger:focus, a.bg-danger:hover {
     display: none !important; } }
 
 .bootstrap-select {
-  width: 220px\9; }
+  width: 220px \9; }
 
 .bootstrap-select > .dropdown-toggle {
   width: 100%;
@@ -8677,7 +8677,7 @@ a.bg-danger:focus, a.bg-danger:hover {
   position: absolute !important;
   bottom: 0;
   left: 50%;
-  width: 0.11px !important;
+  width: .11px !important;
   height: 100% !important;
   padding: 0 !important;
   opacity: 0 !important;
@@ -11090,7 +11090,7 @@ a.bg-danger:focus, a.bg-danger:hover {
 
 .fancybox-error {
   color: #444;
-  font: 14px/20px "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font: 14px/20px "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 15px;
   white-space: nowrap; }
@@ -11203,7 +11203,7 @@ a.bg-danger:focus, a.bg-danger:hover {
 
 .fancybox-title {
   visibility: hidden;
-  font: 400 13px/20px "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font: 400 13px/20px "Helvetica Neue", Helvetica, Arial, sans-serif;
   position: relative;
   text-shadow: none;
   z-index: 8050; }
@@ -12860,10 +12860,10 @@ body > .ui-pnotify-modal-overlay {
   display: block !important; }
 
 .ui-pnotify.ui-pnotify-move {
-  -webkit-transition: left .5s ease,top .5s ease,right .5s ease,bottom .5s ease;
-  -moz-transition: left .5s ease,top .5s ease,right .5s ease,bottom .5s ease;
-  -o-transition: left .5s ease,top .5s ease,right .5s ease,bottom .5s ease;
-  transition: left .5s ease,top .5s ease,right .5s ease,bottom .5s ease; }
+  -webkit-transition: left .5s ease, top .5s ease, right .5s ease, bottom .5s ease;
+  -moz-transition: left .5s ease, top .5s ease, right .5s ease, bottom .5s ease;
+  -o-transition: left .5s ease, top .5s ease, right .5s ease, bottom .5s ease;
+  transition: left .5s ease, top .5s ease, right .5s ease, bottom .5s ease; }
 
 .ui-pnotify.ui-pnotify-fade-slow {
   -webkit-transition: opacity .6s linear;
@@ -12873,10 +12873,10 @@ body > .ui-pnotify-modal-overlay {
   opacity: 0; }
 
 .ui-pnotify.ui-pnotify-fade-slow.ui-pnotify.ui-pnotify-move {
-  -webkit-transition: opacity .6s linear,left .5s ease,top .5s ease,right .5s ease,bottom .5s ease;
-  -moz-transition: opacity .6s linear,left .5s ease,top .5s ease,right .5s ease,bottom .5s ease;
-  -o-transition: opacity .6s linear,left .5s ease,top .5s ease,right .5s ease,bottom .5s ease;
-  transition: opacity .6s linear,left .5s ease,top .5s ease,right .5s ease,bottom .5s ease; }
+  -webkit-transition: opacity .6s linear, left .5s ease, top .5s ease, right .5s ease, bottom .5s ease;
+  -moz-transition: opacity .6s linear, left .5s ease, top .5s ease, right .5s ease, bottom .5s ease;
+  -o-transition: opacity .6s linear, left .5s ease, top .5s ease, right .5s ease, bottom .5s ease;
+  transition: opacity .6s linear, left .5s ease, top .5s ease, right .5s ease, bottom .5s ease; }
 
 .ui-pnotify.ui-pnotify-fade-normal {
   -webkit-transition: opacity .4s linear;
@@ -12886,10 +12886,10 @@ body > .ui-pnotify-modal-overlay {
   opacity: 0; }
 
 .ui-pnotify.ui-pnotify-fade-normal.ui-pnotify.ui-pnotify-move {
-  -webkit-transition: opacity .4s linear,left .5s ease,top .5s ease,right .5s ease,bottom .5s ease;
-  -moz-transition: opacity .4s linear,left .5s ease,top .5s ease,right .5s ease,bottom .5s ease;
-  -o-transition: opacity .4s linear,left .5s ease,top .5s ease,right .5s ease,bottom .5s ease;
-  transition: opacity .4s linear,left .5s ease,top .5s ease,right .5s ease,bottom .5s ease; }
+  -webkit-transition: opacity .4s linear, left .5s ease, top .5s ease, right .5s ease, bottom .5s ease;
+  -moz-transition: opacity .4s linear, left .5s ease, top .5s ease, right .5s ease, bottom .5s ease;
+  -o-transition: opacity .4s linear, left .5s ease, top .5s ease, right .5s ease, bottom .5s ease;
+  transition: opacity .4s linear, left .5s ease, top .5s ease, right .5s ease, bottom .5s ease; }
 
 .ui-pnotify.ui-pnotify-fade-fast {
   -webkit-transition: opacity .2s linear;
@@ -12899,10 +12899,10 @@ body > .ui-pnotify-modal-overlay {
   opacity: 0; }
 
 .ui-pnotify.ui-pnotify-fade-fast.ui-pnotify.ui-pnotify-move {
-  -webkit-transition: opacity .2s linear,left .5s ease,top .5s ease,right .5s ease,bottom .5s ease;
-  -moz-transition: opacity .2s linear,left .5s ease,top .5s ease,right .5s ease,bottom .5s ease;
-  -o-transition: opacity .2s linear,left .5s ease,top .5s ease,right .5s ease,bottom .5s ease;
-  transition: opacity .2s linear,left .5s ease,top .5s ease,right .5s ease,bottom .5s ease; }
+  -webkit-transition: opacity .2s linear, left .5s ease, top .5s ease, right .5s ease, bottom .5s ease;
+  -moz-transition: opacity .2s linear, left .5s ease, top .5s ease, right .5s ease, bottom .5s ease;
+  -o-transition: opacity .2s linear, left .5s ease, top .5s ease, right .5s ease, bottom .5s ease;
+  transition: opacity .2s linear, left .5s ease, top .5s ease, right .5s ease, bottom .5s ease; }
 
 .ui-pnotify.ui-pnotify-fade-in {
   opacity: 1; }
@@ -13395,7 +13395,7 @@ pre {
   word-wrap: break-word; }
 
 code, kbd, pre, samp {
-  font-family: monospace,serif;
+  font-family: monospace, serif;
   font-size: 1em; }
 
 q {
@@ -15359,7 +15359,7 @@ fieldset {
 
 body, button, html, input, select, textarea {
   color: #343434;
-  font-family: 'Proxima Nova',sans-serif;
+  font-family: 'Proxima Nova', sans-serif;
   line-height: 1.4;
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
@@ -17025,7 +17025,7 @@ var.result-container {
   font-weight: 600; }
 
 .control-panel.open .control-panel-container .control-item-lists li p {
-  font-size: 0.9rem !important;
+  font-size: .9rem !important;
   margin-bottom: 0 !important;
   color: #343434; }
 
@@ -20723,8 +20723,8 @@ body {
   float: left; }
 
 .site-header .dropdown.dropdown-lang .flag-icon {
-  -webkit-box-shadow: 0 0 1px #c5d6de,0 0 1px #c5d6de,0 0 1px #c5d6de;
-  box-shadow: 0 0 1px #c5d6de,0 0 1px #c5d6de,0 0 1px #c5d6de; }
+  -webkit-box-shadow: 0 0 1px #c5d6de, 0 0 1px #c5d6de, 0 0 1px #c5d6de;
+  box-shadow: 0 0 1px #c5d6de, 0 0 1px #c5d6de, 0 0 1px #c5d6de; }
 
 .site-header .dropdown.dropdown-lang .dropdown-toggle {
   height: 30px;
@@ -21017,10 +21017,10 @@ body {
   height: 3px;
   background: #adb7be;
   -webkit-transition: -webkit-transform .3s;
-  -moz-transition: transform .3s,-moz-transform .3s;
-  -o-transition: transform .3s,-o-transform .3s;
+  -moz-transition: transform .3s, -moz-transform .3s;
+  -o-transition: transform .3s, -o-transform .3s;
   transition: transform .3s;
-  transition: transform .3s,-webkit-transform .3s,-moz-transform .3s,-o-transform .3s; }
+  transition: transform .3s, -webkit-transform .3s, -moz-transform .3s, -o-transform .3s; }
 
 .hamburger span:after, .hamburger span:before {
   position: absolute;
@@ -21038,11 +21038,11 @@ body {
   -ms-transform-origin: top right;
   -o-transform-origin: top right;
   transform-origin: top right;
-  -webkit-transition: width .3s,top .3s,-webkit-transform .3s;
-  -moz-transition: transform .3s,width .3s,top .3s,-moz-transform .3s;
-  -o-transition: transform .3s,width .3s,top .3s,-o-transform .3s;
-  transition: transform .3s,width .3s,top .3s;
-  transition: transform .3s,width .3s,top .3s,-webkit-transform .3s,-moz-transform .3s,-o-transform .3s; }
+  -webkit-transition: width .3s, top .3s, -webkit-transform .3s;
+  -moz-transition: transform .3s, width .3s, top .3s, -moz-transform .3s;
+  -o-transition: transform .3s, width .3s, top .3s, -o-transform .3s;
+  transition: transform .3s, width .3s, top .3s;
+  transition: transform .3s, width .3s, top .3s, -webkit-transform .3s, -moz-transform .3s, -o-transform .3s; }
 
 .hamburger span:after {
   bottom: -7px;
@@ -21051,11 +21051,11 @@ body {
   -ms-transform-origin: bottom right;
   -o-transform-origin: bottom right;
   transform-origin: bottom right;
-  -webkit-transition: width .3s,bottom .3s,-webkit-transform .3s;
-  -moz-transition: transform .3s,width .3s,bottom .3s,-moz-transform .3s;
-  -o-transition: transform .3s,width .3s,bottom .3s,-o-transform .3s;
-  transition: transform .3s,width .3s,bottom .3s;
-  transition: transform .3s,width .3s,bottom .3s,-webkit-transform .3s,-moz-transform .3s,-o-transform .3s; }
+  -webkit-transition: width .3s, bottom .3s, -webkit-transform .3s;
+  -moz-transition: transform .3s, width .3s, bottom .3s, -moz-transform .3s;
+  -o-transition: transform .3s, width .3s, bottom .3s, -o-transform .3s;
+  transition: transform .3s, width .3s, bottom .3s;
+  transition: transform .3s, width .3s, bottom .3s, -webkit-transform .3s, -moz-transform .3s, -o-transform .3s; }
 
 .hamburger.is-active {
   background: 0 0; }
@@ -23423,15 +23423,6 @@ html {
 
 .chart-statistic-box .chart-container .chart-container-y .item {
   height: 22.4px; }
-
-.chart-statistic-box .google-visualization-tooltip {
-  -webkit-box-shadow: none !important;
-  box-shadow: none !important;
-  background: 0 0 !important;
-  color: #fff !important;
-  border: none !important;
-  font-weight: 700 !important;
-  margin-left: -35px; }
 
 @media (max-width: 1367px) {
   .chart-statistic-box .chart-txt {
@@ -27198,14 +27189,14 @@ a.fc-more:hover {
 
 .note-editor .note-toolbar .note-color .note-palette-title {
   border-bottom: none !important;
-  font-size: 0.875rem !important; }
+  font-size: .875rem !important; }
 
 .note-editor .note-toolbar .note-color .note-color-reset.btn {
   margin: 3px 0 5px !important;
   background-color: #fff;
   border-color: #d8e2e7;
   color: #343434 !important;
-  font-size: 0.875rem !important;
+  font-size: .875rem !important;
   font-weight: 400; }
 
 .note-editor .note-toolbar .note-color .note-color-reset.btn:hover {
@@ -27678,7 +27669,7 @@ a.fc-more:hover {
     border-right: none; } }
 
 .gm-style {
-  font-family: 'Proxima Nova',sans-serif; }
+  font-family: 'Proxima Nova', sans-serif; }
 
 .infoBox {
   background: rgba(44, 57, 73, 0.95);
@@ -29587,6 +29578,12 @@ a.fc-more:hover {
   top: 2px;
   height: 57px;
   left: 3px; }
+
+.statistic-box .info {
+  position: absolute;
+  bottom: 5px;
+  right: 8px;
+  font-size: 13px; }
 
 a {
   cursor: pointer; }
