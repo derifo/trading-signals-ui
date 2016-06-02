@@ -3,38 +3,20 @@
 // endbower
 
 // Vendor
-@import "vendor/bootstrap/_import";
 @import "vendor/ng-loading-bar";
-@import "vendor/toastr";
 @import "vendor/animate";
-@import "vendor/uniform";
-@import "vendor/charts";
-@import "vendor/daterangepicker";
-@import "vendor/slider";
-@import "vendor/ng-notify";
+@import "vendor/jqscrollpane";
+@import "vendor/range-slider/range-slider";
+@import "vendor/sweet-alert";
+@import "vendor/theme";
 
 // Common
-@import "fonts";
 @import "common";
 
 // States
-@import "states/transitions";
-@import "states/layout/navbar";
-@import "states/layout/header";
-@import "states/security/login";
-@import "states/charts/customers-tile";
-@import "states/charts/statistics";
-@import "states/charts/members-trades";
-@import "states/grids/open-trades";
-@import "states/signals/list";
-
-// Directives
-body {
-  font-family: "Roboto";
-  margin-bottom: 100px;
-  font-weight: 300;
-  overflow-y: scroll;
-}
+@import "../app/common/states/layout/navbar/navbar";
+@import "../app/common/states/signals/list/list";
+@import "../app/common/states/signals/signal/signal";
 
 a {
   cursor: pointer;

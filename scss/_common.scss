@@ -1,0 +1,24 @@
+.site-logo {
+  img {
+    position: absolute;
+    top: 2px;
+    height: 57px;
+    left: 3px;
+  }
+}
+
+.statistic-box.blue {
+  background-color: #ac6bec;
+  background-image: url(../img/statistic-box-blue.jpg);
+}
+
+.statistic-box.dark-blue {
+  background-color: #ac6bec;
+  background-image: url(../img/statistic-box-dark-blue.jpg);
+}
+
+.btn.btn-green {
+  @extend .btn-success;
+  background-color: #A2CF37;
+  border-color: #92ba31;
+}

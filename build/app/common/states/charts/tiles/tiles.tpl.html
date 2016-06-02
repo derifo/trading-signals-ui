@@ -1,63 +1,34 @@
-<div class="customers-tiles">
-    <div class="row">
-        <div class="col-md-4 col-sm-12">
-            <div class="tile tile-default">
-                <div class="tile-box tile-thumb">
-                    <div class="fa fa-dollar"></div>
-                </div>
-                <div class="tile-box tile-main">
-                    <h3 class="tile-header">CURRENT <span>BALANCE</span>
-                    </h3>
-                    <div count-up options="{ prefix: '$' }" end-val="stats.balance" class="tile-value"></div>
-                </div>
-                <div class="tile-box tile-secondary">
-                    <h3 class="tile-header">OPEN <span>INVESTMENT</span>
-                    </h3>
-                    <div count-up options="{ prefix: '$' }" end-val="stats.investment" class="tile-value"></div>
-                </div>
-                <div class="clearfix"></div>
+<div class="row">
+    <div class="col-md-3 col-sm-6">
+        <article class="statistic-box green">
+            <div>
+                <div count-up options="{ prefix: '$' }" end-val="stats.balance" class="number"></div>
+                <div class="caption"><div>Current Balance</div></div>
             </div>
-        </div>
-        <div class="col-md-4 col-sm-12">
-            <div class="tile tile-default">
-                <div class="tile-box tile-thumb">
-                    <div class="fa fa-line-chart"></div>
-                </div>
-                <div class="tile-box tile-main">
-                    <h3 class="tile-header">OPEN <span>POSITIONS</span>
-                    </h3>
-                    <div count-up end-val="stats.open" class="tile-value"></div>
-                </div>
-                <div class="tile-box tile-secondary">
-                    <h3 class="tile-header">POTENTIAL <span>PROFIT</span>
-                    </h3>
-                    <div count-up options="{ prefix: '$' }" end-val="stats.potential_profit" class="tile-value"></div>
-                </div>
-                <div class="clearfix"></div>
+        </article>
+    </div><!--.col-->
+    <div class="col-md-3 col-sm-6">
+        <article class="statistic-box purple">
+            <div>
+                <div count-up end-val="stats.open" class="number"></div>
+                <div class="caption"><div>Open Positions</div></div>
             </div>
-        </div>
-        <div class="col-md-4 col-sm-12">
-            <div class="tile tile-default">
-                <div class="tile-box tile-thumb">
-                    <div class="fa fa-area-chart"></div>
-                </div>
-                <div class="tile-box tile-main">
-                    <h3 class="tile-header">PERSONAL <span>TRADES</span>
-                    </h3>
-                    <div count-up options="{ prefix: '$' }" end-val="stats.win_rate" class="tile-value"></div>
-                </div>
-                <div class="tile-box tile-secondary">
-                    <h3 class="tile-header">PERSONAL <span>PROFIT</span>
-                    </h3>
-                    <div count-up options="{ prefix: '$' }" end-val="stats.win_rate" class="tile-value"></div>
-                </div>
-                <div class="clearfix"></div>
+        </article>
+    </div><!--.col-->
+    <div class="col-md-3 col-sm-6">
+        <article class="statistic-box red">
+            <div>
+                <div count-up options="{ prefix: '$' }" end-val="stats.investment" class="number"></div>
+                <div class="caption"><div>Investment</div></div>
             </div>
-        </div>
-    </div>
-</div>
-<!--TOTAL WIN RATE-->
-<!--PERSONAL WIN RATE-->
-
-<!--TOTAL TRADES AMOUNT-->
-<!--TOTAL PROFIT AMOUNT-->
+        </article>
+    </div><!--.col-->
+    <div class="col-md-3 col-sm-6">
+        <article class="statistic-box yellow">
+            <div>
+                <div count-up options="{ prefix: '$' }" end-val="stats.potential_profit" class="number"></div>
+                <div class="caption"><div>Potential Profit</div></div>
+            </div>
+        </article>
+    </div><!--.col-->
+</div><!--.row-->

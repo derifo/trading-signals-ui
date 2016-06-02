@@ -7,90 +7,106 @@ angular.module('app.common.directives')
             restrict: 'E',
             scope: { csData: '=', options: '=' },
             link: function (scope, element) {
-                element.addClass('candle-stick-custom');
-                function updateChart(csData, options) {
-                    var chart = AmCharts.makeChart(element[0], {
-                        "type": "serial",
-                        "theme": "light",
-                        "dataDateFormat": "YYYY-MM-DD HH:NN:SS",
-                        "valueAxes": [{
-                            "position": "left",
-                            "guides": [
-                                {
-                                    "toValue": scope.options.max_rate,
-                                    "value": scope.options.min_rate,
-                                    lineColor: "blue",
-                                    lineAlpha: 1,
-                                    fillAlpha: 0.07,
-                                    fillColor: "blue",
-                                    dashLength: 2,
-                                    inside: true,
-                                },
-                                {
-                                    "toValue": scope.options.open_rate,
-                                    "value": scope.options.open_rate,
-                                    lineColor: "navy",
-                                    lineAlpha: 1,
-                                    dashLength: 2,
-                                    inside: true,
-                                    labelRotation: 90,
-                                    fontSize: "15",
-                                    label: "Signal Rate"
-                                }]
-                        }],
-                        "graphs": [{
-                            "id": "g1",
-                            "balloonText": "Open:<b>[[open]]</b><br>Low:<b>[[low]]</b><br>High:<b>[[high]]</b><br>Close:<b>[[close]]</b><br>",
-                            "closeField": "close",
-                            "fillColors": "green",
-                            "highField": "high",
-                            "lineColor": "#000000",
-                            "lineAlpha": 1,
-                            "lowField": "low",
-                            "fillAlphas": 0.9,
-                            "negativeFillColors": "#db4c3c",
-                            "negativeLineColor": "#000000",
-                            "openField": "open",
-                            "title": "Price:",
-                            "type": "candlestick",
-                            "valueField": "close"
-                        }],
-                        "chartScrollbar": {
-                            "graph": "g1",
-                            "graphType": "line",
-                            "scrollbarHeight": 30
-                        },
-                        "chartCursor": {
-                            "valueLineEnabled": true,
-                            "valueLineBalloonEnabled": true
-                        },
-                        "categoryField": "date",
-                        "categoryAxis": {
-                            "parseDates": true,
-                            "minPeriod": "10mm"
-                        },
-                        "dataProvider": csData,
-                        "export": {
-                            "enabled": true,
-                            "position": "bottom-right"
-                        }
-                    });
+                var loaded = false;
+                var initialized = false;
+                var chart;
 
-                    chart.addListener( "rendered", zoomChart );
-                    zoomChart();
+                function updateChart(csData) {
 
+                    if ( ! csData.length) return;
 
-                    function zoomChart() {
-                        // different zoom methods can be used - zoomToIndexes, zoomToDates, zoomToCategoryValues
-                        chart.zoomToIndexes( chart.dataProvider.length - 10, chart.dataProvider.length - 1 );
+                    if ( ! initialized) {
+                        initialized = true;
+                        chart = new google.visualization.AreaChart(element[0]);
                     }
+
+                    csData = csData.slice(0, 24);
+
+                    var options = {
+                        height: 384,
+                        width: $('.chart-container-in').width(),
+                        legend: 'none',
+                        areaOpacity: 0.18,
+                        axisTitlesPosition: 'out',
+                        hAxis: {
+                            title: '',
+                            textStyle: {
+                                color: '#fff',
+                                fontName: 'Proxima Nova',
+                                fontSize: 11,
+                                bold: true,
+                                italic: false
+                            },
+                            textPosition: 'none'
+                        },
+                        vAxis: {
+                            textPosition: 'in',
+                            textStyle: {
+                                color: '#fff',
+                                fontName: 'Proxima Nova',
+                                fontSize: 11,
+                                bold: true,
+                                italic: false
+                            },
+                            baselineColor: '#16b4fc',
+                            gridlines: {
+                                color: '#1ba0fc',
+                                count: 5
+                            }
+                        },
+                        lineWidth: 2,
+                        colors: ['#fff'],
+                        curveType: 'function',
+                        pointSize: 5,
+                        pointShapeType: 'circle',
+                        pointFillColor: '#f00',
+                        backgroundColor: {
+                            fill: '#008ffb',
+                            strokeWidth: 0
+                        },
+                        chartArea:{
+                            left:0,
+                            top:0,
+                            width:'100%',
+                            height:'100%'
+                        },
+                        fontSize: 11,
+                        fontName: 'Proxima Nova',
+                        tooltip: {
+                            trigger: 'selection',
+                            isHtml: true
+                        }
+                    };
+
+                    var data = google.visualization.arrayToDataTable(csData, true);
+
+                    chart.draw(data, options);
                 }
 
-                var dataReady = false;
-                scope.$watch('csData', function() {
-                    var options = scope.options || {};
-                    updateChart(scope.csData, options);
+                $(window).resize(function(){
+                    updateChart(scope.csData);
+                    setTimeout(function(){
+                    }, 1000);
+                });
 
+                try {
+                    google.charts.load('current', {'packages':['corechart']});
+                } catch(e) {}
+                
+                google.charts.setOnLoadCallback(function() {
+                    loaded = true;
+                    var checkInterval = setInterval(function () {
+                        if(scope.csData) {
+                            updateChart(scope.csData);
+                            clearInterval(checkInterval);
+                        }
+                    }, 100);
+                });
+
+                scope.$watch('csData', function() {
+                    if (loaded && scope.csData) {
+                        updateChart(scope.csData);
+                    }
                 });
             }
         }

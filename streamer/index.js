@@ -3,10 +3,6 @@
  */
 var ioClient = require('socket.io-client'),
     socket = ioClient.connect('http://sst-n2-c-nl.spotoption.com'),
-    mysql = require('mysql'),
-    through2Concurrent = require('through2-concurrent'),
-    helper = require('./mysql-helper'),
-    streamify = require('stream-from-array'),
     cors = require('cors');
 
 var app = require('express')();
@@ -18,6 +14,15 @@ var AssetFeed = require('./assets-feed');
 var assetFeed = new AssetFeed();
 
 assetFeed.subscribe(function(asset, data, rate) {
-    io.sockets.emit('feed_' + asset, JSON.stringify(data), rate);
+    io.sockets.emit('feed', asset, JSON.stringify(data), rate);
 });
 
+io.on('connection', function (socket) {
+
+    socket.on('requestFeed', function (asset) {
+        var data = assetFeed.getAssetData(asset);
+
+        socket.emit('feed', asset, JSON.stringify(data[0]), data[1]);
+    });
+
+});

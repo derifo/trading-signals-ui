@@ -17,13 +17,13 @@ angular.module('app.states.layout', [
         url: '/',
         abstract: true,
         views: {
-            'header@': {
-                templateUrl: 'app/common/states/layout/header/header.tpl.html',
-                controller: 'app.states.layout.headerCtrl'
-            },
             'navbar@': {
                 templateUrl: 'app/common/states/layout/navbar/navbar.tpl.html',
                 controller: 'app.states.layout.navbarCtrl'
+            },
+            'sidebar@': {
+                templateUrl: 'app/common/states/layout/sidebar/sidebar.tpl.html',
+                controller: 'app.states.layout.sidebarCtrl'
             }
         }
     });
