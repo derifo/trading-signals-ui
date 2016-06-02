@@ -37,7 +37,9 @@
     "jScrollPane": "^2.0.23",
     "matchHeight": "matchheight#^0.7.0",
     "bootstrap": "^3.3.6",
-    "peity": "^3.2.0"
+    "peity": "^3.2.0",
+    "ion.rangeSlider": "^2.1.4",
+    "sweetalert": "^1.1.3"
   },
   "overrides": {
     "amcharts3": {

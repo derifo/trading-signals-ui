@@ -6,12 +6,15 @@
 @import "vendor/ng-loading-bar";
 @import "vendor/animate";
 @import "vendor/jqscrollpane";
+@import "vendor/range-slider/range-slider";
+@import "vendor/sweet-alert";
 @import "vendor/theme";
 
 // Common
 @import "common";
 
 // States
+@import "../app/common/states/layout/navbar/navbar";
 @import "../app/common/states/signals/list/list";
 @import "../app/common/states/signals/signal/signal";
 

@@ -14,7 +14,12 @@
                     Current Rate
                 </div>
                 <div class="chart-info-value">
-                    {{ signal.currentRate }}
+                    <span ng-show="signal.currentRate">
+                        {{ signal.currentRate }}
+                    </span>
+                    <span ng-show=" ! signal.currentRate">
+                        Loading ..
+                    </span>
                 </div>
             </div>
             <div class="chart-info direction">
@@ -52,14 +57,31 @@
                     May 30, 2016 03:00:00 PM
                 </div>
             </div>
-            <button class="btn btn-green signal-order-btn">
+            <button class="btn btn-green signal-order-btn" ng-click="openBuyOrder()">
                 Buying Order <span class="fa fa-angle-double-right"></span>
             </button>
         </div>
         <div class="chart-container">
             <div class="chart-container-in">
                 <candle-stick id="chart_div" cs-data="signal.chartData"></candle-stick>
+                <div class="buying-order-mask fadeInLeft animated" style="display: none">
+                    <div class="buying-order-box">
+                        <div class="slider">
+                            <span>Select Investment Amount</span>
+                            <slider ng-model="buyOptions.amount" options="sliderOptions"></slider>
+                        </div>
+                        <div class="investment text-center">
+                            For <span class="investment-number">${{ buyOptions.amount }}</span> Investment your potential profit is
+                            <span class="profit-number">${{ buyOptions.amount / 100 * 83 | number: 2 }}</span>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <button class="btn btn-default" ng-click="closeBuyOrder()">Cancel</button>
+                        <button class="btn btn-green" ng-click="buySignal()">Confirm</button>
+                    </div>
+                </div>
             </div>
+
         </div>
     </div><!--.chart-statistic-box-->
 </div>

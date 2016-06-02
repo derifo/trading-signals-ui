@@ -89,7 +89,10 @@ angular.module('app.common.directives')
                     }, 1000);
                 });
 
-                google.charts.load('current', {'packages':['corechart']});
+                try {
+                    google.charts.load('current', {'packages':['corechart']});
+                } catch(e) {}
+                
                 google.charts.setOnLoadCallback(function() {
                     loaded = true;
                     var checkInterval = setInterval(function () {
