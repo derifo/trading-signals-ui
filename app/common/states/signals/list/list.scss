@@ -1,0 +1,49 @@
+.signal-list-box.statistic-box {
+
+  &.more-signals-box {
+    & > div {
+      font-size: 37px;
+      line-height: 42px;
+      padding: 17%;
+      font-weight: 300;
+    }
+  }
+
+  & > div {
+    height: 177px;
+
+    .number {
+      padding: 12px 0 0;
+    }
+  }
+
+  .signal-countdown {
+    font-weight: 300;
+    font-size: 37px;
+  }
+
+  .signal-score {
+    font-size: 21px;
+    letter-spacing: 5px;
+    color: #A2CF37;
+  }
+
+  .info {
+    position: absolute;
+    bottom: 5px;
+    right: 12px;
+    font-size: 15px;
+    font-weight: 300;
+  }
+}
+
+@media(max-width: 1500px) and (min-width: 1150px) {
+  .signal-list-item {
+    padding: 0 5px;
+  }
+
+  .signal-list-box.statistic-box .signal-countdown {
+    font-size: 27px;
+    line-height: 50px;
+  }
+}
