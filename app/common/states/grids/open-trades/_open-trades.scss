@@ -1,0 +1,13 @@
+.open-trades-container {
+  table {
+    td, th { text-align: center; }
+
+    td.direction {
+      img { width: 26px; }
+    }
+
+    td.asset {
+      img { width: 30px; }
+    }
+  }
+}

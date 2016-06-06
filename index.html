@@ -15,17 +15,8 @@
         }
     </script>
 </head>
-<body class="with-side-menu ">
-    <header class="site-header">
-        <div ui-view="navbar" class="container-fluid"></div>
-    </header><!--.site-header-->
-    <div class="mobile-menu-left-overlay"></div>
-    <nav class="side-menu" ui-view="sidebar" scroll-pane></nav>
-    <div class="page-content">
-        <div class="container-fluid">
-            <div ui-view="content"></div>
-        </div><!--.container-fluid-->
-    </div>
+<body class="with-side-menu">
+    <div ui-view="layout"></div>
     <!-- bower:js -->
     <script src="/vendor/jquery/dist/jquery.js"></script>
     <script src="/vendor/angular/angular.js"></script>
@@ -57,50 +48,53 @@
     <!-- inject:js -->
     <script src="/app/app.mdl.js"></script>
     <script src="/app/common/directives/drv.mdl.js"></script>
-    <script src="/app/common/services/srv.mdl.js"></script>
     <script src="/app/common/filters/flt.mdl.js"></script>
-    <script src="/app/common/states/charts/charts.mdl.js"></script>
-    <script src="/app/common/states/signals/signals.mdl.js"></script>
-    <script src="/app/common/states/layout/layout.mdl.js"></script>
+    <script src="/app/common/services/srv.mdl.js"></script>
     <script src="/app/common/states/grids/grids.mdl.js"></script>
-    <script src="/app/core/profile/profile.mdl.js"></script>
+    <script src="/app/common/states/charts/charts.mdl.js"></script>
+    <script src="/app/common/states/layout/layout.mdl.js"></script>
+    <script src="/app/common/states/signals/signals.mdl.js"></script>
     <script src="/app/core/dashboard/dashboard.mdl.js"></script>
-    <script src="/app/core/signals/signals.mdl.js"></script>
-    <script src="/app/core/trades/trades.mdl.js"></script>
-    <script src="/app/core/support/support.mdl.js"></script>
+    <script src="/app/core/profile/profile.mdl.js"></script>
     <script src="/app/core/security/security.mdl.js"></script>
+    <script src="/app/core/signals/signals.mdl.js"></script>
+    <script src="/app/core/support/support.mdl.js"></script>
+    <script src="/app/core/trades/trades.mdl.js"></script>
+    <script src="/app/common/api/merchants-signals.srv.js"></script>
+    <script src="/app/common/api/signals.srv.js"></script>
+    <script src="/app/common/api/traders.srv.js"></script>
+    <script src="/app/common/api/trades.srv.js"></script>
+    <script src="/app/common/directives/asset-rate.drv.js"></script>
     <script src="/app/common/directives/candle-stick.drv.js"></script>
     <script src="/app/common/directives/count-down.drv.js"></script>
     <script src="/app/common/directives/count-up.drv.js"></script>
     <script src="/app/common/directives/score.drv.js"></script>
     <script src="/app/common/directives/scrollpane.drv.js"></script>
     <script src="/app/common/directives/slider.drv.js"></script>
-    <script src="/app/common/api/merchants-signals.srv.js"></script>
-    <script src="/app/common/api/signals.srv.js"></script>
-    <script src="/app/common/api/traders.srv.js"></script>
-    <script src="/app/common/api/trades.srv.js"></script>
+    <script src="/app/common/directives/tour.drv.js"></script>
     <script src="/app/common/services/assets-feed.srv.js"></script>
     <script src="/app/common/services/theme.srv.js"></script>
     <script src="/app/common/directives/validation/campre-to.drv.js"></script>
     <script src="/app/common/services/config/user-token.srv.js"></script>
-    <script src="/app/common/states/charts/statistics/statistics.ctrl.js"></script>
-    <script src="/app/common/states/charts/members-trades/members-trades.ctrl.js"></script>
-    <script src="/app/common/states/charts/tiles/tiles.ctrl.js"></script>
-    <script src="/app/common/states/signals/list/list.ctrl.js"></script>
-    <script src="/app/common/states/signals/signal/signal.ctrl.js"></script>
-    <script src="/app/common/states/layout/navbar/navbar.ctrl.js"></script>
-    <script src="/app/common/states/layout/sidebar/sidebar.ctrl.js"></script>
     <script src="/app/common/states/grids/open-trades/open-trades.ctrl.js"></script>
     <script src="/app/common/states/grids/trades-history/trades-history.ctrl.js"></script>
-    <script src="/app/core/profile/profile.ctrl.js"></script>
+    <script src="/app/common/states/charts/members-trades/members-trades.ctrl.js"></script>
+    <script src="/app/common/states/charts/statistics/statistics.ctrl.js"></script>
+    <script src="/app/common/states/charts/tiles/tiles.ctrl.js"></script>
+    <script src="/app/common/states/layout/layout/layout.ctrl.js"></script>
+    <script src="/app/common/states/layout/navbar/navbar.ctrl.js"></script>
+    <script src="/app/common/states/layout/sidebar/sidebar.ctrl.js"></script>
+    <script src="/app/common/states/signals/list/list.ctrl.js"></script>
+    <script src="/app/common/states/signals/signal/signal.ctrl.js"></script>
     <script src="/app/core/dashboard/dashboard.ctrl.js"></script>
+    <script src="/app/core/profile/profile.ctrl.js"></script>
+    <script src="/app/core/security/login/login.ctrl.js"></script>
     <script src="/app/core/signals/history/history.ctrl.js"></script>
     <script src="/app/core/signals/live/live.ctrl.js"></script>
-    <script src="/app/core/trades/history/history.ctrl.js"></script>
-    <script src="/app/core/support/faq/faq.ctrl.js"></script>
     <script src="/app/core/support/contact/contact.ctrl.js"></script>
+    <script src="/app/core/support/faq/faq.ctrl.js"></script>
+    <script src="/app/core/trades/history/history.ctrl.js"></script>
     <script src="/app/core/trades/open/open.ctrl.js"></script>
-    <script src="/app/core/security/login/login.ctrl.js"></script>
     <!-- endinject -->
     <!-- inject:build:js -->
     <!-- endinject -->

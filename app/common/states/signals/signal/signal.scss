@@ -65,6 +65,8 @@
 
         .chart-info-value {
           font-size: 13px;
+          max-height: 19px;
+          overflow: hidden;
         }
       }
     }
@@ -92,9 +94,15 @@
       }
 
       .investment {
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+        max-width: 280px;
+
         .investment-number { font-size: 30px; }
         .profit-number {
-          font-size: 40px;
+          font-size: 30px;
           color: #8DC327;
           text-shadow: 0 0 8px rgba(0,0,0, 0.1);
         }
@@ -103,6 +111,7 @@
 
     .buttons {
       text-align: center;
+      margin-top: 30px;
 
       button {
         width: 160px;
@@ -111,5 +120,17 @@
         margin-right: 20px;
       }
     }
+  }
+}
+
+
+@media (max-width: 767px) {
+  .chart-statistic-box .chart-txt {
+    float: left;
+    width: auto;
+    height: auto;
+    margin: 0 0 15px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
   }
 }

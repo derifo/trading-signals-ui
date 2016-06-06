@@ -1,8 +1,19 @@
 <div class="row">
+    <tour></tour>
     <div class="col-xs-12">
         <div ui-view="tiles"></div>
     </div>
     <div class="col-xs-12">
+        <img class="how-it-works" src="/img/how-it-works.jpg" alt="">
+    </div>
+    <div class="col-xs-12">
         <div ui-view="signalsList"></div>
+    </div>
+    <div class="clearfix visible-md"></div>
+    <div class="col-md-12 col-lg-8">
+        <div ui-view="openTrades"></div>
+    </div>
+    <div class="col-lg-4 hidden-md-down">
+        <div ui-view="membersTrade"></div>
     </div>
 </div>

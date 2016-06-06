@@ -8,7 +8,7 @@
  * Controller of the yeomanApp
  */
 angular.module('app.states.layout')
-	.controller('app.states.layout.navbarCtrl', function ($scope, tradersAPI, $state) {
+	.controller('app.states.layout.layoutCtrl', function ($scope, tradersAPI, $state) {
 
 		$scope.logout = function () {
 			tradersAPI.logout().$promise.then(function () {

@@ -30984,35 +30984,36 @@ a.fc-more:hover {
   background-color: #A2CF37;
   border-color: #92ba31; }
 
+.box-typical.box-typical-dashboard {
+  height: 100%; }
+
 .site-header {
   background: #324A56; }
 
-.signal-list-box.statistic-box.more-signals-box > div {
-  font-size: 37px;
-  line-height: 42px;
-  padding: 17%;
-  font-weight: 300; }
-
-.signal-list-box.statistic-box > div {
-  height: 177px; }
-  .signal-list-box.statistic-box > div .number {
-    padding: 12px 0 0; }
-
-.signal-list-box.statistic-box .signal-countdown {
-  font-weight: 300;
-  font-size: 37px; }
-
-.signal-list-box.statistic-box .signal-score {
-  font-size: 21px;
-  letter-spacing: 5px;
-  color: #A2CF37; }
-
-.signal-list-box.statistic-box .info {
-  position: absolute;
-  bottom: 5px;
-  right: 12px;
-  font-size: 15px;
-  font-weight: 300; }
+.signal-list-box.statistic-box {
+  cursor: pointer; }
+  .signal-list-box.statistic-box.more-signals-box > div {
+    font-size: 37px;
+    line-height: 42px;
+    padding: 17%;
+    font-weight: 300; }
+  .signal-list-box.statistic-box > div {
+    height: 177px; }
+    .signal-list-box.statistic-box > div .number {
+      padding: 12px 0 0; }
+  .signal-list-box.statistic-box .signal-countdown {
+    font-weight: 300;
+    font-size: 37px; }
+  .signal-list-box.statistic-box .signal-score {
+    font-size: 21px;
+    letter-spacing: 5px;
+    color: #A2CF37; }
+  .signal-list-box.statistic-box .info {
+    position: absolute;
+    bottom: 5px;
+    right: 12px;
+    font-size: 15px;
+    font-weight: 300; }
 
 @media (max-width: 1500px) and (min-width: 1150px) {
   .signal-list-item {
@@ -31020,6 +31021,29 @@ a.fc-more:hover {
   .signal-list-box.statistic-box .signal-countdown {
     font-size: 27px;
     line-height: 50px; } }
+
+@media (max-width: 1150px) {
+  .chart-statistic-box {
+    margin: 0 0 10px; }
+  .signal-list-col {
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-bottom: 30px; }
+  .signal-list-item {
+    padding: 2px; }
+  .signal-list-box.statistic-box {
+    margin: 0 0 2px; }
+    .signal-list-box.statistic-box > div {
+      height: 126px; }
+    .signal-list-box.statistic-box .signal-countdown {
+      font-size: 25px; }
+    .signal-list-box.statistic-box .signal-score {
+      font-size: 15px; }
+    .signal-list-box.statistic-box.more-signals-box > div {
+      font-size: 25px;
+      line-height: 31px; }
+  .more-signals-box {
+    height: 126px; } }
 
 .signal-chart-box.chart-statistic-box .chart-txt {
   height: 384px; }
@@ -31058,7 +31082,9 @@ a.fc-more:hover {
     .signal-chart-box.chart-statistic-box .chart-txt .chart-info.expires {
       border-bottom: none; }
       .signal-chart-box.chart-statistic-box .chart-txt .chart-info.expires .chart-info-value {
-        font-size: 13px; }
+        font-size: 13px;
+        max-height: 19px;
+        overflow: hidden; }
 
 .signal-chart-box .buying-order-mask {
   position: absolute;
@@ -31077,19 +31103,44 @@ a.fc-more:hover {
       font-size: 19px; }
       .signal-chart-box .buying-order-mask .buying-order-box .slider .irs-line {
         background: #304B58; }
-    .signal-chart-box .buying-order-mask .buying-order-box .investment .investment-number {
-      font-size: 30px; }
-    .signal-chart-box .buying-order-mask .buying-order-box .investment .profit-number {
-      font-size: 40px;
-      color: #8DC327;
-      text-shadow: 0 0 8px rgba(0, 0, 0, 0.1); }
+    .signal-chart-box .buying-order-mask .buying-order-box .investment {
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: auto;
+      max-width: 280px; }
+      .signal-chart-box .buying-order-mask .buying-order-box .investment .investment-number {
+        font-size: 30px; }
+      .signal-chart-box .buying-order-mask .buying-order-box .investment .profit-number {
+        font-size: 30px;
+        color: #8DC327;
+        text-shadow: 0 0 8px rgba(0, 0, 0, 0.1); }
   .signal-chart-box .buying-order-mask .buttons {
-    text-align: center; }
+    text-align: center;
+    margin-top: 30px; }
     .signal-chart-box .buying-order-mask .buttons button {
       width: 160px;
       font-size: 19px;
       font-weight: 300;
       margin-right: 20px; }
+
+@media (max-width: 767px) {
+  .chart-statistic-box .chart-txt {
+    float: left;
+    width: auto;
+    height: auto;
+    margin: 0 0 15px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px; } }
+
+.open-trades-container table td, .open-trades-container table th {
+  text-align: center; }
+
+.open-trades-container table td.direction img {
+  width: 26px; }
+
+.open-trades-container table td.asset img {
+  width: 30px; }
 
 a {
   cursor: pointer; }
@@ -31098,3 +31149,8 @@ a {
   display: block;
   width: 100%;
   height: 300px; }
+
+.how-it-works {
+  margin-bottom: 27px;
+  width: 100%;
+  box-shadow: 3px 2px 9px 0 rgba(0, 0, 0, 0.2); }

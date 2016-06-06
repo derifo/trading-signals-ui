@@ -71,8 +71,15 @@
                             <slider ng-model="buyOptions.amount" options="sliderOptions"></slider>
                         </div>
                         <div class="investment text-center">
-                            For <span class="investment-number">${{ buyOptions.amount }}</span> Investment your potential profit is
-                            <span class="profit-number">${{ buyOptions.amount / 100 * 83 | number: 2 }}</span>
+                            <div class="pull-left">
+                                Investment: <br>
+                                <span class="investment-number">${{ buyOptions.amount }}</span>
+                            </div>
+                            <div class="pull-right">
+                                Potential Profit: <br>
+                                <span class="profit-number">${{ buyOptions.amount / 100 * 83 | number: 2 }}</span>
+                            </div>
+                            <div class="clearfix"></div>
                         </div>
                     </div>
                     <div class="buttons">

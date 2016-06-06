@@ -1,4 +1,5 @@
 .signal-list-box.statistic-box {
+  cursor: pointer;
 
   &.more-signals-box {
     & > div {
@@ -45,5 +46,47 @@
   .signal-list-box.statistic-box .signal-countdown {
     font-size: 27px;
     line-height: 50px;
+  }
+}
+
+@media (max-width: 1150px) {
+
+  .chart-statistic-box {
+    margin: 0 0 10px;
+  }
+
+  .signal-list-col {
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-bottom: 30px;
+  }
+
+  .signal-list-item {
+    padding: 2px;
+  }
+
+  .signal-list-box.statistic-box {
+    margin: 0 0 2px;
+
+    > div {
+      height: 126px;
+    }
+
+    .signal-countdown {
+      font-size: 25px;
+    }
+
+    .signal-score {
+      font-size: 15px;
+    }
+
+    &.more-signals-box > div {
+      font-size: 25px;
+      line-height: 31px;
+    }
+  }
+
+  .more-signals-box {
+    height: 126px;
   }
 }

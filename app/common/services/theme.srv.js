@@ -19,7 +19,6 @@ angular.module('app.common.services')
                             autoReinitialiseDelay: 100
                         };
 
-                        $('.box-typical-body').jScrollPane(jScrollOptions);
                         //$('.side-menu-addl').jScrollPane(jScrollOptions);
                         $('.scrollable-block').jScrollPane(jScrollOptions);
                     }
@@ -184,22 +183,6 @@ angular.module('app.common.services')
                     /* ==========================================================================
                      Dashboard
                      ========================================================================== */
-
-                    // Calculate height
-                    function dashboardBoxHeight() {
-                        $('.box-typical-dashboard').each(function(){
-                            var parent = $(this),
-                                header = parent.find('.box-typical-header'),
-                                body = parent.find('.box-typical-body');
-                            body.height(parent.outerHeight() - header.outerHeight());
-                        });
-                    }
-
-                    dashboardBoxHeight();
-
-                    $(window).resize(function(){
-                        dashboardBoxHeight();
-                    });
 
                     // Collapse box
                     $('.box-typical-dashboard').each(function(){

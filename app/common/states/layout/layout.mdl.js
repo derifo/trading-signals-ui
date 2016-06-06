@@ -17,11 +17,15 @@ angular.module('app.states.layout', [
         url: '/',
         abstract: true,
         views: {
-            'navbar@': {
+            'layout@': {
+                templateUrl: 'app/common/states/layout/layout/layout.tpl.html',
+                controller: 'app.states.layout.layoutCtrl'
+            },
+            'navbar@app': {
                 templateUrl: 'app/common/states/layout/navbar/navbar.tpl.html',
                 controller: 'app.states.layout.navbarCtrl'
             },
-            'sidebar@': {
+            'sidebar@app': {
                 templateUrl: 'app/common/states/layout/sidebar/sidebar.tpl.html',
                 controller: 'app.states.layout.sidebarCtrl'
             }

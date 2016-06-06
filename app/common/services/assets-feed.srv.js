@@ -8,9 +8,9 @@ angular.module('app.common.services')
         socket.emit('feed-all');
 
         var callbacks = {};
-        socket.on('feed', function (asset, data, current) {
+        socket.on('feed', function (asset, data, current, direction) {
             data = JSON.parse(data);
-            emitCallbacks(asset, data, current);
+            emitCallbacks(asset, data, current, direction);
         });
 
         var addCallback = function (asset, callback) {
@@ -18,10 +18,10 @@ angular.module('app.common.services')
             callbacks[asset].push(callback);
         };
 
-        var emitCallbacks = function (asset, data, current) {
+        var emitCallbacks = function (asset, data, current, direction) {
             if (callbacks[asset] && callbacks[asset].length) {
                 callbacks[asset].forEach(function(callback) {
-                    callback(asset, data, current);
+                    callback(asset, data, current, direction);
                 });
             }
         };

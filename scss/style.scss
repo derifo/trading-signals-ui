@@ -17,6 +17,7 @@
 @import "../app/common/states/layout/navbar/navbar";
 @import "../app/common/states/signals/list/list";
 @import "../app/common/states/signals/signal/signal";
+@import "../app/common/states/grids/open-trades/open-trades";
 
 a {
   cursor: pointer;
@@ -26,4 +27,10 @@ a {
   display: block;
   width: 100%;
   height: 300px;
+}
+
+.how-it-works {
+  margin-bottom: 27px;
+  width: 100%;
+  box-shadow: 3px 2px 9px 0 rgba(0,0,0,0.2);
 }

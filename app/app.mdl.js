@@ -61,7 +61,12 @@ angular.module('app', [
 
 		$http.defaults.transformResponse.unshift(function (data, headers, code) {
 			if (code == 401 && $state.current.name != 'app.security.login') {
-				$state.go('app.security.login');
+				$state.go('security.login');
+			}
+			else {
+				setTimeout(function () {
+					$('.site-layout-container').removeClass('hidden');
+				}, 1000)
 			}
 
 			return data;
@@ -69,8 +74,8 @@ angular.module('app', [
 
 		$rootScope.$on('$stateChangeSuccess', function () {
 			// Making a login check
-			if ($state.current.name != 'app.security.login') {
-				$http.get(sConfig.api + 'api/traders/is_logged');
+			if ($state.current.name != 'security.login') {
+				;
 			}
 		});
 

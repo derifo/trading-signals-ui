@@ -17,7 +17,7 @@ angular.module('app.core.support', [ 'ui.router' ])
 		$stateProvider.state('app.support.faq', {
 			url: '/faq',
 			views: {
-				'content@': {
+				'content@app': {
 					templateUrl: '/app/core/support/faq/faq.tpl.html',
 					controller: 'app.core.support.faqCtrl'
 				}

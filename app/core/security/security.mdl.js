@@ -11,21 +11,17 @@ angular.module('app.core.security', [
 	])
 	.config(function ($stateProvider) {
 
-		$stateProvider.state('app.security', {
-			url: 'auth/',
+		$stateProvider.state('security', {
+			url: '/auth/',
 			abstract: true
 		});
 
-		$stateProvider.state('app.security.login', {
+		$stateProvider.state('security.login', {
 			url: 'login',
 			views: {
-				'content@': {
+				'layout@': {
 					templateUrl: '/app/core/security/login/login.tpl.html',
 					controller: 'app.core.security.loginCtrl'
-				},
-				'navbar@': {
-					templateUrl: 'app/common/states/layout/navbar/navbar.tpl.html',
-					controller: 'app.states.layout.navbarCtrl'
 				}
 			}
 		});
