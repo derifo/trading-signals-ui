@@ -37,7 +37,7 @@ var AssetFeed = function() {
                     assets.push('feed_asset_' + row.socket_id + '_' + row.socket_id + '_DemoSite');
                     self.dbIdsBySocketId[row.socket_id] = row.id;
 
-                    self.emitSubscribes(row.socket_id, row.rate);
+                    self.emitSubscribes(row.socket_id, row.rate, 1);
                     self.activeRates[row._socket_id] = row.rate;
                 });
 
@@ -82,8 +82,9 @@ var AssetFeed = function() {
                             };
                         }
 
+                        var direction = self.activeRates[asset] > rate ? 0 :  1;
                         self.activeRates[asset] = rate;
-                        self.emitSubscribes(asset, rate);
+                        self.emitSubscribes(asset, rate, direction);
                     }
                 });
             });
@@ -114,10 +115,10 @@ AssetFeed.prototype.subscribe = function(callback) {
     }
 };
 
-AssetFeed.prototype.emitSubscribes = function(asset, newRate) {
+AssetFeed.prototype.emitSubscribes = function(asset, newRate, direction) {
     var self = this;
     self.callbacks.forEach(function (val) {
-        val(asset, self.assetsData[asset], newRate);
+        val(asset, self.assetsData[asset], newRate, direction);
     })
 };
 
@@ -140,7 +141,7 @@ AssetFeed.prototype.updateDB = function() {
 };
 
 AssetFeed.prototype.getAssetData = function (asset) {
-    return [ this.assetsData[asset], this.activeRates[asset] ];
+    return [ this.assetsData[asset], this.activeRates[asset], 1 ];
 };
 
 module.exports = AssetFeed;

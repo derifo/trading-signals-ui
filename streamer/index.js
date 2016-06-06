@@ -13,8 +13,8 @@ server.listen(8080);
 var AssetFeed = require('./assets-feed');
 var assetFeed = new AssetFeed();
 
-assetFeed.subscribe(function(asset, data, rate) {
-    io.sockets.emit('feed', asset, JSON.stringify(data), rate);
+assetFeed.subscribe(function(asset, data, rate, direction) {
+    io.sockets.emit('feed', asset, JSON.stringify(data), rate, direction);
 });
 
 io.on('connection', function (socket) {
@@ -22,7 +22,7 @@ io.on('connection', function (socket) {
     socket.on('requestFeed', function (asset) {
         var data = assetFeed.getAssetData(asset);
 
-        socket.emit('feed', asset, JSON.stringify(data[0]), data[1]);
+        socket.emit('feed', asset, JSON.stringify(data[0]), data[1], data[2]);
     });
 
 });
