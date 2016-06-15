@@ -1,0 +1,46 @@
+
+<page-center>
+    <div class="page-center-in">
+        <div class="container-fluid">
+            <form class="sign-box" name="signupForm" ng-submit="formSubmitted()">
+                <div class="sign-avatar no-photo">&plus;</div>
+                <header class="sign-title">Trading Signals - Sign Up</header>
+                <div class="alert alert-danger" ng-show="serverError">Code is already used or invalid</div>
+                <div class="form-group">
+                    <input placeholder="Promotion Code" type="text" name="code" class="form-control" ng-model="user.code" required ng-minlength="32" ng-maxlength="32">
+                    <div class="text-danger" ng-show=" ! signupForm.code.$pristine" ng-messages="signupForm.code.$error" role="alert">
+                        <div ng-message="required">Promotion Code is required</div>
+                        <div ng-message="minlength">Invalid code</div>
+                        <div ng-message="maxlength">Invalid code</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input placeholder="E-Mail / Username" type="email" name="email" class="form-control" ng-model="user.email" required ng-minlength="3" ng-maxlength="40">
+
+                    <div class="text-danger" ng-show=" ! signupForm.email.$pristine && signupForm.email.$touched" ng-messages="signupForm.email.$error" role="alert">
+                        <div ng-message="required">You did not enter a field</div>
+                        <div ng-message="minlength">Your field is too short</div>
+                        <div ng-message="maxlength">Your field is too long</div>
+                        <div ng-message="email">Invalid email address</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input placeholder="Password" type="password" name="password" class="form-control" ng-model="user.password" required ng-minlength="5" ng-maxlength="12">
+                    <div class="text-danger" ng-show=" ! signupForm.password.$pristine" ng-messages="signupForm.password.$error" role="alert">
+                        <div ng-message="required">You did not enter a field</div>
+                        <div ng-message="minlength">Your field is too short</div>
+                        <div ng-message="maxlength">Your field is too long</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input placeholder="Password" type="password" name="password_confirm" class="form-control" ng-model="user.password_confirm" compare-to="user.password">
+                    <div class="text-danger" ng-show=" ! signupForm.password_confirm.$pristine" ng-messages="signupForm.password_confirm.$error" role="alert">
+                        <div ng-message="compareTo">Passwords does not match</div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-rounded btn-success sign-up">Sign up</button>
+                <p class="sign-note">Already have an account? <a ui-sref="security.login">Sign in</a></p>
+            </form>
+        </div>
+    </div>
+</page-center>

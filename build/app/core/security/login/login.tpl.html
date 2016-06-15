@@ -1,12 +1,12 @@
 
-<div class="page-center">
+<page-center>
     <div class="page-center-in">
         <div class="container-fluid">
             <form method="post" class="sign-box" ng-submit="formSubmitted()">
                 <div class="sign-avatar">
                     <img src="img/avatar-sign.png" alt="">
                 </div>
-                <header class="sign-title">Sign In</header>
+                <header class="sign-title">Trading Signals - Sign in</header>
                 <div class="form-group">
                     <input type="text" ng-model="credentials.email" class="form-control" placeholder="E-Mail or Phone"/>
                 </div>
@@ -18,16 +18,10 @@
                         <input type="checkbox" id="signed-in"/>
                         <label for="signed-in">Keep me signed in</label>
                     </div>
-                    <div class="float-right reset">
-                        <a href="#">Reset Password</a>
-                    </div>
                 </div>
                 <button type="submit" class="btn btn-rounded">Sign in</button>
-                <p class="sign-note">New to our website? <a href="sign-up.html">Sign up</a></p>
-                <!--<button type="button" class="close">
-                    <span aria-hidden="true">&times;</span>
-                </button>-->
+                <p class="sign-note">New Trader? <a ui-sref="security.signup">Sign up</a></p>
             </form>
         </div>
     </div>
-</div><!--.page-center-->
+</page-center>

@@ -8,7 +8,7 @@
  * Controller of the yeomanApp
  */
 angular.module('app.states.grids').controller('app.grids.openTrades',
-	function ($scope, tradesAPI, assetFeedService) {
+	function ($rootScope, $scope, tradesAPI, assetFeedService) {
 		$scope.rowCollection = tradesAPI.query({ tradeStatus: 1 });
 
 		$scope.getters = {
@@ -17,10 +17,9 @@ angular.module('app.states.grids').controller('app.grids.openTrades',
 				return value.firstName.length;
 			}
 		};
-		
-		var subscribe = assetFeedService.subscribe(function (asset, data, current) {
-		
+
+		$rootScope.$on('traderSignalBought', function() {
+			$scope.rowCollection = tradesAPI.query({ tradeStatus: 1 });
 		});
 
-		subscribe.setAsset(2);
 	});

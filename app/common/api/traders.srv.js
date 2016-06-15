@@ -15,6 +15,7 @@ angular.module('app.common.services')
 			getStatistics: { method: 'GET', url: sConfig.api + 'api/traders/traders/stats' },
 			save: { method: 'POST', params: { id: "@id" } },
 			login: { method: 'POST', url: sConfig.api + 'api/traders/login' },
+			register: { method: 'POST', url: sConfig.api + 'api/traders/register' },
 			logout: { method: 'POST', url: sConfig.api + 'api/traders/logout' }
 		});
 	});

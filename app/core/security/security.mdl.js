@@ -25,4 +25,14 @@ angular.module('app.core.security', [
 				}
 			}
 		});
+
+		$stateProvider.state('security.signup', {
+			url: 'sign-up',
+			views: {
+				'layout@': {
+					templateUrl: '/app/core/security/signup/signup.tpl.html',
+					controller: 'app.core.security.signupCtrl'
+				}
+			}
+		});
 	});

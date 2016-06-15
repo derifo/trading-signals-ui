@@ -63,7 +63,7 @@ angular.module('app', [
 			if (code == 401 && $state.current.name != 'app.security.login') {
 				$state.go('security.login');
 			}
-			else {
+			else if(headers()['content-type'] == 'application/json') {
 				setTimeout(function () {
 					$('.site-layout-container').removeClass('hidden');
 				}, 1000)

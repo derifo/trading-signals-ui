@@ -9,9 +9,7 @@ angular.module('app.common.directives')
                     options: '='
                 },
                 link: function (scope, element) {
-                    setTimeout(function () {
-                        introJs().start();
-                    }, 2000);
+
                 }
             };
         }

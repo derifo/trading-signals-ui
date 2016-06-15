@@ -29,7 +29,12 @@
                 <div class="chart-info-value">
                     <div class="direction-txt">Call</div>
                     <div class="direction-avatar">
-                        <img src="/img/call.png" alt="">
+                        <span ng-show="signal.signal.direction">
+                            <img src="/img/call2.png" alt="">
+                        </span>
+                        <span ng-show=" ! signal.signal.direction">
+                            <img src="/img/put2.png" alt="">
+                        </span>
                     </div>
                     <div class="clearfix"></div>
                 </div>
