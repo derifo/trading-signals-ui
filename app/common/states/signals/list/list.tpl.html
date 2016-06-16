@@ -10,7 +10,7 @@
                         <div class="number">
                             <img src="/img/assets/{{ signal.signal.asset.socket_id }}.png" alt="">
                         </div>
-                        <div countdown end-time="{{ signal.expires | date : 'medium'}}" class="signal-countdown"></div>
+                        <div countdown end-time="{{ signal.expires }}" class="signal-countdown"></div>
                         <div class="signal-score" score="{{ signal.signal.score }}"></div>
                         <div class="info hidden-md-down">More Info <span class="fa fa-angle-double-right"></span></div>
                     </div>

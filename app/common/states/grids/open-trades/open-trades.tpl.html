@@ -1,53 +1,37 @@
-<section class="box-typical box-typical-dashboard open-trades-container">
-    <header class="box-typical-header">
-        <div class="tbl-row">
-            <div class="tbl-cell tbl-cell-title">
-                <h3>My Open Trades</h3>
-            </div>
-            <div class="tbl-cell tbl-cell-actions">
-                <button type="button" class="action-btn action-btn-expand">
-                    <i class="font-icon font-icon-expand"></i>
-                </button>
-            </div>
-        </div>
-    </header>
-    <div class="box-typical-body">
-        <table st-table="rowCollection" class="table">
-            <thead>
-            <tr>
-                <th>Asset</th>
-                <th>Direction</th>
-                <th>Invested</th>
-                <th>Potential Profit</th>
-                <th>Buying Time</th>
-                <th>Expiry Time</th>
-                <th>Buying Rate</th>
-                <th>Current Rate</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr ng-repeat="row in rowCollection">
-                <td class="asset">
-                    <img src="/img/assets/{{ row.merchant_signal.signal.asset.socket_id }}.png" alt="">
-                </td>
-                <td class="direction">
+<table st-table="rowCollection" class="table table-bordered">
+    <thead>
+    <tr>
+        <th>Asset</th>
+        <th>Direction</th>
+        <th>Invested</th>
+        <th>Potential Profit</th>
+        <th>Buying Time</th>
+        <th>Expiry Time</th>
+        <th>Buying Rate</th>
+        <th>Current Rate</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="row in rowCollection">
+        <td class="asset">
+            <img src="/img/assets/{{ row.merchant_signal.signal.asset.socket_id }}.png" alt="">
+        </td>
+        <td class="direction">
             <span ng-show="row.merchant_signal.signal.direction">
                 <img src="/img/call2.png" alt="">
             </span>
             <span ng-show=" ! row.merchant_signal.signal.direction">
                 <img src="/img/put2.png" alt="">
             </span>
-                </td>
-                <td>${{ row.amount }}</td>
-                <td>${{ 100 / row.profit * row.amount | number: 1 }}</td>
-                <td>{{ row.buy_date | date: 'medium' }}</td>
-                <td>{{ row.expiry_date | date: 'medium' }}</td>
-                <td>{{ row.entry_rate }}</td>
-                <td>
-                    <asset-rate asset="{{ row.merchant_signal.signal.asset.socket_id }}"></asset-rate>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-</section><!--.box-typical-dashboard-->
+        </td>
+        <td>${{ row.amount }}</td>
+        <td>${{ 100 / row.profit * row.amount | number: 1 }}</td>
+        <td>{{ row.buy_date | date: 'medium' }}</td>
+        <td>{{ row.expiry_date | date: 'medium' }}</td>
+        <td>{{ row.entry_rate }}</td>
+        <td>
+            <asset-rate asset="{{ row.merchant_signal.signal.asset.socket_id }}"></asset-rate>
+        </td>
+    </tr>
+    </tbody>
+</table>

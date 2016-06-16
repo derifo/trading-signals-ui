@@ -8,7 +8,8 @@ angular.module('app.common.directives')
             scope: { endTime: '@' },
             link: function (scope, element) {
                 function getTimeRemaining(endtime) {
-                    var t = Date.parse(endtime) - Date.parse(new Date());
+                    endtime = endtime.replace('+0200', '');
+                    var t = Date.parse(moment.utc(endtime).local().format('YYYY-MM-DD HH:mm:ss')) - Date.parse(new Date());
                     var seconds = Math.floor((t / 1000) % 60);
                     var minutes = Math.floor((t / 1000 / 60) % 60);
                     var hours = Math.floor(t / (1000 * 60 * 60));
@@ -20,6 +21,7 @@ angular.module('app.common.directives')
                         'seconds': seconds > 9 ? seconds : '0' + seconds
                     };
                 }
+            
 
                 function initializeClock(endtime) {
                     function updateClock() {
@@ -35,7 +37,7 @@ angular.module('app.common.directives')
                     var timeinterval = $interval(updateClock, 1000);
                 }
 
-                initializeClock(new Date(Date.parse(scope.endTime)));
+                initializeClock(scope.endTime);
             }
         };
     }

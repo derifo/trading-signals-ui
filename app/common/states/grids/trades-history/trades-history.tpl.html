@@ -1,15 +1,14 @@
-<div class="open-trades-container">
-    <table st-table="rowCollection" class="table">
+<div class="trades-history-container">
+    <table st-table="rowCollection" class="table table-bordered">
         <thead>
         <tr>
             <th>Asset</th>
             <th>Direction</th>
             <th>Invested</th>
-            <th>Profit</th>
+            <th>Payout</th>
             <th>Buying Time</th>
             <th>Expiry Time</th>
             <th>Buying Rate</th>
-            <th>Current Rate</th>
             <th>Status</th>
         </tr>
         </thead>
@@ -21,18 +20,20 @@
             </td>
             <td>
                 <span ng-show="row.merchant_signal.signal.direction">
-                    <img src="/img/call.png" alt="">
+                    <img src="/img/call2.png" alt="">
                 </span>
                 <span ng-show=" ! row.merchant_signal.signal.direction">
-                    <img src="/img/put.png" alt="">
+                    <img src="/img/put2.png" alt="">
                 </span>
             </td>
             <td>${{ row.amount }}</td>
-            <td>${{ 100 / row.profit * row.amount | number: 1 }}</td>
+            <td>
+                <span ng-if="row.trade_status.id == 2">${{ 100 / row.profit * row.amount | number: 1 }}</span>
+                <span ng-if="row.trade_status.id == 3">$0</span>
+            </td>
             <td>{{ row.buy_date | date: 'medium' }}</td>
             <td>{{ row.expiry_date | date: 'medium' }}</td>
             <td>{{ row.entry_rate }}</td>
-            <td>{{ getRate(row.merchant_signal.signal.asset.socket_id) }}</td>
             <td>{{ row.trade_status.title }}</td>
         </tr>
         </tbody>

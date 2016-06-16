@@ -12,7 +12,7 @@ angular.module('app.core.dashboard', [ 'ui.router' ])
 		$stateProvider.state('app.dashboard', {
 			url: '',
 			data: {
-				signalsList: { limit: 5 }
+				signalsList: { limit: 6 }
 			},
 			views: {
 				'content@app': {

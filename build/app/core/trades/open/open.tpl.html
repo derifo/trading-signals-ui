@@ -1,4 +1,55 @@
 <div class="container-fluid">
-   <h3 class="page-header">My Open Trades</h3>
-   <div ui-view="grid"></div>
+   <header class="section-header">
+      <div class="tbl">
+         <div class="tbl-row">
+            <div class="tbl-cell">
+               <h3>My Open Trades</h3>
+               <ol class="breadcrumb breadcrumb-simple">
+                  <li><a ui-sref="app.dashboard">Dashboard</a></li>
+                  <li><a ui-sref="app.dashboard">Trades</a></li>
+                  <li class="active">My Open Trades</li>
+               </ol>
+            </div>
+         </div>
+      </div>
+   </header>
+   <div class="row">
+      <div class="col-md-9">
+         <section class="tabs-section">
+            <div class="tabs-section-nav">
+               <div class="tbl">
+                  <ul class="nav" role="tablist">
+                     <li class="nav-item">
+                        <a class="nav-link active" href="#tabs-2-tab-1" role="tab" data-toggle="tab" aria-expanded="true">
+                     <span class="nav-link-in">
+                         Trading Signals Open Trades
+                         <!--<span class="label label-pill label-success">4</span>-->
+                     </span>
+                        </a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="#tabs-2-tab-2" role="tab" data-toggle="tab" aria-expanded="false">
+                     <span class="nav-link-in">
+                         Manual Open Trades
+                         <!--<span class="label label-pill label-success">2</span>-->
+                     </span>
+                        </a>
+                     </li>
+                  </ul>
+               </div>
+            </div><!--.tabs-section-nav-->
+            <div class="tab-content">
+               <div role="tabpanel" class="tab-pane fade active in" id="tabs-2-tab-1" aria-expanded="true">
+                  <div ui-view="grid"></div>
+               </div><!--.tab-pane-->
+               <div role="tabpanel" class="tab-pane fade" id="tabs-2-tab-2" aria-expanded="false">
+                  <div ui-view="grid"></div>
+               </div><!--.tab-pane-->
+            </div><!--.tab-content-->
+         </section>
+      </div>
+      <div class="col-md-3">
+         <div ui-view="tiles"></div>
+      </div>
+   </div>
 </div>

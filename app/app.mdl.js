@@ -18,6 +18,8 @@ angular.module('app', [
 		'ui.router',
 		'smart-table',
 		'countUpModule',
+		'ui.bootstrap',
+		'ui.bootstrap.tabs',
 		'angular-loading-bar',
 		'app.common.services',
 		'app.common.directives',

@@ -8,6 +8,7 @@
 @import "vendor/jqscrollpane";
 @import "vendor/range-slider/range-slider";
 @import "vendor/sweet-alert";
+@import "vendor/_b-tabs.scss";
 @import "vendor/theme";
 
 // Common
@@ -18,6 +19,7 @@
 @import "../app/common/states/signals/list/list";
 @import "../app/common/states/signals/signal/signal";
 @import "../app/common/states/grids/open-trades/open-trades";
+@import "../app/common/states/grids/trades-history/trades_history";
 
 a {
   cursor: pointer;

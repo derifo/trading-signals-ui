@@ -431,6 +431,14 @@ angular.module('app.common.services')
                             content.addClass('open');
                         }
                     });
+
+                    $('body').on('click', '.tabs-section-nav a', function (e) {
+                        e.preventDefault();
+                        $(this).tab('show');
+                        $(this).parents('.tabs-section-nav').find('a').removeClass('active');
+                        $(this).addClass('active');
+                    });
+
                 }, 200);
             }
         }

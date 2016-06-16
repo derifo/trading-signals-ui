@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-md-3 col-sm-6">
+    <div ng-class="colDefinition" >
         <article class="statistic-box green">
             <div>
                 <div count-up options="{ prefix: '$' }" end-val="stats.balance" class="number"></div>
@@ -7,7 +7,7 @@
             </div>
         </article>
     </div><!--.col-->
-    <div class="col-md-3 col-sm-6">
+    <div ng-class="colDefinition">
         <article class="statistic-box purple">
             <div>
                 <div count-up end-val="stats.open" class="number"></div>
@@ -15,7 +15,7 @@
             </div>
         </article>
     </div><!--.col-->
-    <div class="col-md-3 col-sm-6">
+    <div ng-class="colDefinition">
         <article class="statistic-box red">
             <div>
                 <div count-up options="{ prefix: '$' }" end-val="stats.investment" class="number"></div>
@@ -23,7 +23,7 @@
             </div>
         </article>
     </div><!--.col-->
-    <div class="col-md-3 col-sm-6">
+    <div ng-class="colDefinition">
         <article class="statistic-box yellow">
             <div>
                 <div count-up options="{ prefix: '$' }" end-val="stats.potential_profit" class="number"></div>

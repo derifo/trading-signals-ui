@@ -11,7 +11,14 @@
     </div>
     <div class="clearfix visible-md"></div>
     <div class="col-md-12 col-lg-8">
-        <div ui-view="openTrades"></div>
+        <section class="widget widget-activity">
+            <header class="widget-header">
+                My Trading Signals - Open Trades
+            </header>
+            <div>
+                <div ui-view="openTrades"></div>
+            </div>
+        </section>
     </div>
     <div class="col-lg-4 hidden-md-down">
         <div ui-view="membersTrade"></div>
